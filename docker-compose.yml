@@ -1,0 +1,20 @@
+version: '2'
+services:
+
+  entrance:
+    build: ./entrance
+    depends_on:
+     - manager
+     - teller
+    ports:
+     - "8080:80"
+
+  manager:
+    build: ./manager
+    ports:
+     - "3000"
+
+  teller:
+    build: ./teller
+    ports:
+     - "80"

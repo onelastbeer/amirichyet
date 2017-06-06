@@ -1,0 +1,15 @@
+{
+  "name": "manager",
+  "version": "1.0.0",
+  "description": "Backend for amirichyet",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Louis Merlin",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
