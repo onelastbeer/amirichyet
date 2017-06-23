@@ -21,7 +21,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //setting up root
-var User = require('./schema.user.js');
+var User = require('./schema/user.js');
 var rootUser = new User({
   username: 'CryptoGod',
   password: bcrypt.hashSync(rootPassword, salt),
