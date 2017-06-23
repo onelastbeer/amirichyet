@@ -24,7 +24,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var User = require('./schema.user.js');
 var rootUser = new User({
   username: 'CryptoGod',
-  password: bcrypt.hashSync(ROOT_PASSWORD, salt),
+  password: bcrypt.hashSync(rootPassword, salt),
   email: 'cryptogod@wakeup.coffee',
   superUser: true
 });
