@@ -10,6 +10,10 @@
   "author": "Louis Merlin",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.2"
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.10.8"
   }
 }
