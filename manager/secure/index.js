@@ -3,7 +3,7 @@ const express = require('express');
 var router = express.Router();
 
 const saltRounds = 10;
-const key = process.env.hashingKey
+const key = process.env.HASHING_KEY
 
 
 

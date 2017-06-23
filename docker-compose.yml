@@ -20,7 +20,7 @@ services:
     ports:
       - "80"
 
-  database:
+  vault:
     image: mongo
     ports:
       - "27017"
