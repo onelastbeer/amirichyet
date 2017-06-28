@@ -1,11 +1,9 @@
 new Vue({
   el: '#app',
   data: {
-    greeting: 'Welcome to your Vue.js app!',
     message: 'Waiting for transmission',
-    docsURL: 'http://vuejs.org/guide/',
-    gitterURL: 'https://gitter.im/vuejs/vue',
-    forumURL: 'http://forum.vuejs.org/'
+    publicMessage: 'Waiting for public message',
+    secureMessage: 'Waiting for secure message',
   },
   created: function() {
     this.fetchMessage()
@@ -18,7 +16,9 @@ new Vue({
     },
     fetchMessage: function() {
       var v = this;
-      get('/api/secure/secure', function(data) { v.message = data });
+      get('/api/hi', function(data) { v.message = data });
+      get('/api/public/test', function(data) { v.publicMessage = data });
+      get('/api/secure/test', function(data) { v.privateMessage = data });
     }
   }
 })
