@@ -18,7 +18,7 @@ new Vue({
       var v = this;
       get('/api/hi', function(data) { v.message = data });
       get('/api/public/test', function(data) { v.publicMessage = data });
-      get('/api/secure/test', function(data) { v.secureMessage = data });
+      get('/api/secure/cur', function(data) { v.secureMessage = data });
     }
   }
 })
