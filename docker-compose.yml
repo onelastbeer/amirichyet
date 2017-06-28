@@ -11,6 +11,8 @@ services:
 
   manager:
     build: ./manager
+    depends_on:
+     - vault
     ports:
       - "3000"
 

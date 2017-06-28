@@ -9,7 +9,7 @@ const saltRounds = 10;
 const key = process.env.HASHING_KEY
 
 router.get('/test', function (req, res) {
-  User.findOne({username: 'CryptoGod'}, function(err, user) {
+  User.findOne({'username': 'CryptoGod'}, function(err, user) {
     if (err) {
       console.log(err);
       res.status(409).send('Test Error');
