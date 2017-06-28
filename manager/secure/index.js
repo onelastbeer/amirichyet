@@ -14,7 +14,7 @@ router.get('/test', function (req, res) {
       console.log(err);
       res.status(409).send('Test Error');
     } else if (user) {
-      res.status(200).send(user.email);
+      res.status(200).send(user);
     } else {
       res.status(200).send('User Not Found')
     }

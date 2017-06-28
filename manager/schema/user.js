@@ -30,17 +30,16 @@ var UserSchema = new Schema({
 
   password: {
     type: String,
-    required: 'Password is required',
+    required: 'Password is required for this currency',
     unique: true
   },
 
   email: {
       type: String,
-      trim: true,
       lowercase: true,
       unique: true,
-      required: 'Email address is required',
-      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+      required: 'Email address is required for this currency',
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,7})+$/, 'Please fill a valid email address']
   },
 
   superUser: {
@@ -48,7 +47,10 @@ var UserSchema = new Schema({
     default: false
   },
 
-
+  deleted: {
+    type: Boolean,
+    default: false
+  }
 });
 
 module.exports = mongoose.model('User', UserSchema );
