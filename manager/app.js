@@ -23,8 +23,15 @@ var User = require('./schema/user.js');
 new User({
   username: 'CryptoGod',
   password: bcrypt.hashSync(rootPassword, salt),
-  email: 'cryptogod@wakeup.coffee',
-  superUser: true
+  email: 'cryptogod@wakeup.coffee'
+}).save();
+
+//setting up currencies
+var Currency = require('./schema/currency.js');
+new Currency({
+  name: 'Ethereum',
+  acronym: 'ETH',
+  email: 'cryptogod@wakeup.coffee'
 }).save();
 
 

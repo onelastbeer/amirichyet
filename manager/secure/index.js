@@ -1,5 +1,7 @@
 const express = require('express');
-const User = require('../schema/user.js');
+const mongoose = require('mongoose');
+const Currency = mongoose.model('Currency');
+const User = mongoose.model('User');
 
 var router = express.Router();
 
@@ -15,6 +17,19 @@ router.get('/test', function (req, res) {
       res.status(200).send(user.email);
     } else {
       res.status(200).send('User Not Found')
+    }
+  })
+})
+
+router.get('/cur', function (req, res) {
+  Currency.findOne({acronym: 'ETH'}, function(err, cur) {
+    if (err) {
+      console.log(err);
+      res.status(409).send('Test Error');
+    } else if (cur) {
+      res.status(200).send(cur);
+    } else {
+      res.status(200).send('Currency Not Found')
     }
   })
 })
