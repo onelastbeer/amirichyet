@@ -11,4 +11,8 @@ router.get('/test', function (req, res) {
   res.send('This requires an authentication !')
 })
 
+router.get('/secure', function(req, res) {
+  res.send(req.db.find({username: 'CryptoGod'}))
+})
+
 module.exports = router;

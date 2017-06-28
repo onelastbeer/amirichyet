@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const app = express();
 
 const salt = bcrypt.genSaltSync(10);;
@@ -16,7 +16,7 @@ app.listen(3000, function () {
 })
 
 //connecting to database
-mongoose.connect('mongodb://vault');
+mongoose.connect('mongodb://vault', { useMongoClient: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -28,7 +28,7 @@ var rootUser = new User({
   email: 'cryptogod@wakeup.coffee',
   superUser: true
 });
-rootUser.save(function (err) { if (err) return handleError(err); });
+rootUser.save();
 
 
 //adding useful blocks

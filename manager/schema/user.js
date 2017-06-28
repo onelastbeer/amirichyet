@@ -26,7 +26,7 @@ var UserSchema = new Schema({
   lastName: {
     type: String,
     maxlength: 64
-  }
+  },
 
   password: {
     type: String,
@@ -53,4 +53,4 @@ var UserSchema = new Schema({
 
 var User = mongoose.model('User', UserSchema );
 
-return User;
+module.exports = User;
