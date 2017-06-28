@@ -3,7 +3,7 @@ new Vue({
   data: {
     message: 'Waiting for transmission',
     publicMessage: 'Waiting for public message',
-    secureMessage: 'Waiting for secure message',
+    secureMessage: 'Waiting for secure message'
   },
   created: function() {
     this.fetchMessage()
@@ -18,7 +18,7 @@ new Vue({
       var v = this;
       get('/api/hi', function(data) { v.message = data });
       get('/api/public/test', function(data) { v.publicMessage = data });
-      get('/api/secure/test', function(data) { v.privateMessage = data });
+      get('/api/secure/test', function(data) { v.secureMessage = data });
     }
   }
 })

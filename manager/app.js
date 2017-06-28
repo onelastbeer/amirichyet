@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
+require('./schema/user.js');
+const User = mongoose.model('User')
 const app = express();
 
 const salt = bcrypt.genSaltSync(10);;
@@ -19,7 +21,7 @@ app.listen(3000, function () {
 mongoose.connect('mongodb://vault');
 
 //setting up root
-var User = require('./schema/user.js');
+
 new User({
   username: 'CryptoGod',
   password: bcrypt.hashSync(rootPassword, salt),

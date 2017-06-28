@@ -1,5 +1,6 @@
 const express = require('express');
-const User = require('../schema/user.js');
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 
 var router = express.Router();
 
@@ -7,7 +8,7 @@ const saltRounds = 10;
 const key = process.env.HASHING_KEY
 
 router.get('/test', function (req, res) {
-  User.findOne({username: 'CryptoGod'}, function(err, user) {
+  User.findOne({'username': 'CryptoGod'}, function(err, user) {
     if (err) {
       console.log(err);
       res.status(409).send('Test Error');
