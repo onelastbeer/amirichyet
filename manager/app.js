@@ -16,19 +16,16 @@ app.listen(3000, function () {
 })
 
 //connecting to database
-mongoose.connect('mongodb://vault', { useMongoClient: true });
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connect('mongodb://vault');
 
 //setting up root
 var User = require('./schema/user.js');
-var rootUser = new User({
+new User({
   username: 'CryptoGod',
   password: bcrypt.hashSync(rootPassword, salt),
   email: 'cryptogod@wakeup.coffee',
   superUser: true
-});
-rootUser.save();
+}).save();
 
 
 //adding useful blocks
