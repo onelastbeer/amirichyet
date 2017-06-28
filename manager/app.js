@@ -12,7 +12,7 @@ const rootPassword = process.env.ROOT_PASSWORD;
 //console.log(process.env.HASHING_KEY);
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('API listening on port 3000!')
 })
 
 //connecting to database
@@ -29,8 +29,13 @@ new User({
 }).save();
 
 //setting up currencies
-require('./function/currencies-updater.js')
+var Currency = require('./schema/currency.js');
+new Currency({
+  name: 'Ethereum',
+  symbol: 'ETH'
+}).save();
 
+require('./function/currencies-updater.js')();
 
 //adding useful blocks
 app.use(bodyParser.json({limit: '50mb'}));
