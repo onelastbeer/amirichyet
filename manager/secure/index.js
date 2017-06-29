@@ -36,24 +36,8 @@ router.use(function(req, res, next) {
     }
   })
 
-router.get('/self', function (req, res) {
-  User.findOne({'id': req.decoded.id}, function(err, user) {
-    if (err) {
-      console.log(err);
-      return res.status(409).json('Test Error');
-    } else if (user) {
-      return res.status(200).json({
-        success: true,
-        message: 'User information',
-        user: user
-      });
-    } else {
-      return res.status(200).json({
-        success: false,
-        message: 'User not found'
-      });
-    }
-  })
-})
+  app.use('/user', require('./user'));
+
+  app.use('/transaction', require('./transaction'));
 
 module.exports = router;
