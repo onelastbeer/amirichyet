@@ -11,16 +11,23 @@ var CurrencySchema = new Schema({
 
   name: {
     type: String,
-    maxlength: 64,
+    maxlength: 126,
     required: 'Name is required for this currency'
   },
 
   symbol: {
     type: String,
-    maxlength: 16,
+    maxlength: 32,
     required: 'Acronym is required for this currency'
   },
- 
+
+  coinmarketcapId: {
+    type: String,
+    maxlength: 64,
+    required: 'coinmarketcapId is required for this currency',
+    unique: true
+  },
+
   deleted: {
     type: Boolean,
     default: false

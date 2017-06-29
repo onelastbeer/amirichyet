@@ -30,7 +30,8 @@ update = function(currency) {
     if(!match) {
       new Currency({
         name: currency.name,
-        symbol: currency.symbol
+        symbol: currency.symbol,
+        coinmarketcapId: currency.id
       }).save(function (err) {
         if (err) console.error(err);
       });
