@@ -65,7 +65,7 @@ export default {
 .nav-item {
   float: left;
   margin-bottom: 0;
-  margin-left: 2.5rem;
+  margin-left: 1.5rem;
   position: relative;
 }
 </style>
