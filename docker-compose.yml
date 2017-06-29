@@ -17,7 +17,9 @@ services:
       - "3000"
     environment:
       HASHING_KEY: 'please_change'
+      ROOT_USERNAME: 'CryptoGod'
       ROOT_PASSWORD: 'please_change'
+      ROOT_EMAIL: 'cryptogod@wakeup.coffee'
       TOKEN_KEY: 'please_change'
 
 
@@ -32,6 +34,7 @@ services:
       - "27017:27017"
     volumes:
       - ./mongo_data:/data/db
+      - ./img:/img
 
 volumes:
   data:

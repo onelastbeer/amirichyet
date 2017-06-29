@@ -1,12 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
 const app = express();
-
-const salt = bcrypt.genSaltSync(10);;
-const key = process.env.HASHING_KEY;
-const rootPassword = process.env.ROOT_PASSWORD;
 
 app.listen(3000, function () {
   console.log('API listening on port 3000!')
@@ -15,19 +11,8 @@ app.listen(3000, function () {
 //connecting to database
 mongoose.connect('mongodb://vault');
 
-//setting up models
-var Currency = require('./schema/currency.js');
-var User = require('./schema/user.js');
-var Transaction = require('./schema/transaction.js');
-
-//setting up root
-new User({
-  username: 'CryptoGod',
-  password: bcrypt.hashSync(rootPassword, salt),
-  email: 'cryptogod@wakeup.coffee',
-  lastName: 'God',
-  superUser: true
-}).save();
+//setting up models and root user
+require('./schema')();
 
 
 require('./function/currencies-updater.js')();
@@ -35,6 +20,7 @@ require('./function/currencies-updater.js')();
 //adding useful blocks
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: false, limit: '50mb'}));
+app.use(cors());
 
 //allows cross origin requests
 app.use(function(req, res, next) {
