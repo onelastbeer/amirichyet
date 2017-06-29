@@ -27,7 +27,7 @@ var CurrencySchema = new Schema({
     required: 'coinmarketcapId is required for this currency',
     unique: true
   },
-
+ 
   deleted: {
     type: Boolean,
     default: false

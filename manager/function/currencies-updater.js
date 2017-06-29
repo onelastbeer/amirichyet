@@ -25,7 +25,7 @@ module.exports = () => {
 }
 
 update = function(currency) {
-  Currency.findOne({'symbol': currency.symbol} , (err, match) => {
+  Currency.findOne({ coinmarketcapId: currency.id } , (err, match) => {
     if (err) throw err;
     if(!match) {
       new Currency({
@@ -33,10 +33,19 @@ update = function(currency) {
         symbol: currency.symbol,
         coinmarketcapId: currency.id
       }).save(function (err) {
-        if (err) console.error(err);
+        if (err) return console.error(err);
+        console.log(currency.name + " ["+ currency.symbol +"]"+ " added (" + currency.is + ")");
       });
-      console.log(currency.name + " ["+ currency.symbol +"]"+ " updated (" + currency.rank + ")");
     } else {
+      if(match.name != currency.name || match.symbol != currency.symbol) {
+        Currency.update({ coinmarketcapId: currency.id }, {
+            name : currency.name,
+            symbol : currency.symbol
+          }, (err) => {
+            if (err) return console.error(err);
+            console.log(currency.name + " ["+ currency.symbol +"]"+ " updated (" + currency.id + ")");
+        })
+      }
     }
   })
 }
