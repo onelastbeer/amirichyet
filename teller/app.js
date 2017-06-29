@@ -14,14 +14,26 @@ const router = new VueRouter({
     { path: '/bar', component: Bar }
   ]
 })
-/*
+
 new Vue({
   router,
   el: '#app',
+  template: `
+    <div id="app">
+      <div class="container header">
+        <img src="https://news.bitcoin.com/wp-content/uploads/2016/01/ethereum-logo-205x300.png" alt="Ethereum logo"></img>
+        <h1>{{ message }}</h1>
+      </div>
+      <div class="container">
+        <router-link to="/">/</router-link>
+        <router-link to="/foo">/foo</router-link>
+        <router-link to="/bar">/bar</router-link>
+        <router-view class="view"></router-view>
+      </div>
+    </div>
+  `,
   data: {
     message: 'Waiting for transmission',
-    publicMessage: 'Waiting for public message',
-    secureMessage: 'Waiting for secure message'
   },
   created: function() {
     this.fetchMessage()
@@ -35,28 +47,6 @@ new Vue({
     fetchMessage: function() {
       var v = this;
       get('/api/hi', function(data) { v.message = data });
-      get('/api/public/test', function(data) { v.publicMessage = data });
-      get('/api/secure/cur', function(data) { v.secureMessage = data });
     }
   }
-})*/
-// 4. Create and mount root instance.
-// Make sure to inject the router.
-// Route components will be rendered inside <router-view>.
-new Vue({
-  router,
-  template: `
-    <div id="app">
-      <h1>Basic</h1>
-      <ul>
-        <li><router-link to="/">/</router-link></li>
-        <li><router-link to="/foo">/foo</router-link></li>
-        <li><router-link to="/bar">/bar</router-link></li>
-        <router-link tag="li" to="/bar" :event="['mousedown', 'touchstart']">
-          <a>/bar</a>
-        </router-link>
-      </ul>
-      <router-view class="view"></router-view>
-    </div>
-  `
-}).$mount('#app')
+})
