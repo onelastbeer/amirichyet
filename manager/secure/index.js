@@ -36,8 +36,8 @@ router.use(function(req, res, next) {
     }
   })
 
-app.use('/user', require('./user'));
+router.use('/user', require('./user'));
 
-app.use('/transaction', require('./transaction'));
+router.use('/transaction', require('./transaction'));
 
 module.exports = router;

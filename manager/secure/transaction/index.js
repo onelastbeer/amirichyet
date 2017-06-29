@@ -5,18 +5,18 @@ const Transaction = mongoose.model('Transaction');
 var router = express.Router();
 
 router.get('/all', function (req, res) {
-  Transaction.find({'user': req.decoded.userId, 'deleted': false}, function(err, transactions) {
+  Transaction.find({'user': req.decoded.userId, 'deleted': false}, function(err, result) {
     if (err) {
       console.log(err);
       return res.status(409).json({
         success: false,
         message: 'Internal server error'
       });
-    } else if (transactions) {
+    } else if (result) {
       return res.status(200).json({
         success: true,
-        message: 'List of all transactions from this user'
-        transactions: transactions
+        message: 'List of all transactions from this user',
+        transactions: result
       });
     } else {
       return res.status(200).json({

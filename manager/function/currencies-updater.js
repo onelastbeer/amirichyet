@@ -11,6 +11,7 @@ module.exports = () => {
       })
       res.on('end', () => {
         var parsed = JSON.parse(currs);
+        var skipped = 0;
         for (var i = 0; i < parsed.length; i++) {
           update(parsed[i])
         }
@@ -31,9 +32,8 @@ update = function(currency) {
         name: currency.name,
         symbol: currency.symbol
       }).save();
-      console.log(currency.name + " updated (" + currency.rank + ")");
+      console.log(currency.name + "["+ currency.symbol +"]"+ " updated (" + currency.rank + ")");
     } else {
-      console.log(currency.name + " exists (" + currency.rank + ") : skipped");
     }
   })
 }
