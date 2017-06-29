@@ -2,8 +2,6 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var emailRegex = '/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/';
-
 var UserSchema = new Schema({
 
   created: {
