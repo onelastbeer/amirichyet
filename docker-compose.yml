@@ -12,9 +12,13 @@ services:
   manager:
     build: ./manager
     depends_on:
-     - vault
+      - vault
     ports:
       - "3000"
+    environment:
+      HASHING_KEY: 'please_change'
+      ROOT_PASSWORD: 'please_change'
+      TOKEN_KEY: 'please_change'
 
 
   teller:

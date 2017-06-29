@@ -8,18 +8,19 @@ const salt = bcrypt.genSaltSync(10);;
 const key = process.env.HASHING_KEY;
 const rootPassword = process.env.ROOT_PASSWORD;
 
-//console.log(process.env.ROOT_PASSWORD);
-//console.log(process.env.HASHING_KEY);
-
 app.listen(3000, function () {
   console.log('API listening on port 3000!')
-})
+});
 
 //connecting to database
 mongoose.connect('mongodb://vault');
 
-//setting up root
+//setting up models
+var Currency = require('./schema/currency.js');
 var User = require('./schema/user.js');
+var Transaction = require('./schema/transaction.js');
+
+//setting up root
 new User({
   username: 'CryptoGod',
   password: bcrypt.hashSync(rootPassword, salt),
@@ -28,12 +29,6 @@ new User({
   superUser: true
 }).save();
 
-//setting up currencies
-var Currency = require('./schema/currency.js');
-new Currency({
-  name: 'Ethereum',
-  symbol: 'ETH'
-}).save();
 
 require('./function/currencies-updater.js')();
 

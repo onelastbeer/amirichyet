@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var CurrencySchema = new Schema({
+var TransactionSchema = new Schema({
 
   created: {
     type: Date,
@@ -24,6 +24,11 @@ var CurrencySchema = new Schema({
     type: Schema.ObjectId,
     ref: 'Currency',
     required: 'A currency is required for this transaction'
+  },
+
+  amount: {
+    type: Number,
+    required: 'An amount is required for this transaction'
   },
 
   rates: {
@@ -49,4 +54,4 @@ var CurrencySchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Currency', CurrencySchema );
+module.exports = mongoose.model('Transaction', TransactionSchema );
