@@ -34,7 +34,7 @@ update = function(currency) {
         coinmarketcapId: currency.id
       }).save(function (err) {
         if (err) return console.error(err);
-        console.log(currency.name + " ["+ currency.symbol +"]"+ " added (" + currency.is + ")");
+        console.log(currency.name + " ["+ currency.symbol +"]"+ " added (" + currency.id + ")");
       });
     } else {
       if(match.name != currency.name || match.symbol != currency.symbol) {
