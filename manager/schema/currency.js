@@ -12,17 +12,15 @@ var CurrencySchema = new Schema({
   name: {
     type: String,
     maxlength: 64,
-    required: 'Name is required for this currency',
-    unique: true
+    required: 'Name is required for this currency'
   },
 
   symbol: {
     type: String,
     maxlength: 16,
-    required: 'Acronym is required for this currency',
-    unique: true
+    required: 'Acronym is required for this currency'
   },
-
+ 
   deleted: {
     type: Boolean,
     default: false

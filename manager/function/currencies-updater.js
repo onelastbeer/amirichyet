@@ -31,8 +31,10 @@ update = function(currency) {
       new Currency({
         name: currency.name,
         symbol: currency.symbol
-      }).save();
-      console.log(currency.name + "["+ currency.symbol +"]"+ " updated (" + currency.rank + ")");
+      }).save(function (err) {
+        if (err) console.error(err);
+      });
+      console.log(currency.name + " ["+ currency.symbol +"]"+ " updated (" + currency.rank + ")");
     } else {
     }
   })
