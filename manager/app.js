@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
 const app = express();
 
 const salt = bcrypt.genSaltSync(10);;
@@ -35,6 +36,7 @@ require('./function/currencies-updater.js')();
 //adding useful blocks
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: false, limit: '50mb'}));
+app.use(cors());
 
 //allows cross origin requests
 app.use(function(req, res, next) {
