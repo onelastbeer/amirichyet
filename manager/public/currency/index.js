@@ -28,7 +28,7 @@ router.get('/all', function (req, res) {
 });
 
 router.get('/findByID/:id', function (req, res) {
-  Currency.find({'_id': req.params.id}, function(err, result) {
+  Currency.findOne({'_id': req.params.id}, function(err, result) {
     if (err) {
       console.log(err);
       return res.status(409).json({
