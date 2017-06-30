@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import store from './store'
-import { sync } from 'vuex-router-sync'
 import App from './components/App.vue'
 import Login from './components/Login.vue'
 
@@ -20,8 +19,6 @@ const router = new VueRouter({
     { path: '/signup', component: Signup }
   ]
 })
-
-sync(store, router);
 
 new Vue({
   router,
