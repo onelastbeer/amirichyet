@@ -1,10 +1,10 @@
 export default {
   login (username, password, cb, errorCb) {
-    setTimeout(() => {
-      // simulate random login failure.
-      (Math.random() > 0.5)
-        ? cb()
-        : errorCb()
-    }, 100)
+    this.$http.get('./api/public/user/authenticate').then(response => {
+      this.someData = response.body;
+      cb();
+    }, response => {
+      errorCb;
+    });
   }
 }
