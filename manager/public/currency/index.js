@@ -73,6 +73,30 @@ router.get('/findBySymbol/:symbol', function (req, res) {
   })
 });
 
+router.get('/findBySymbol/:name', function (req, res) {
+  Currency.find({'name': req.params.name}, function(err, result) {
+    if (err) {
+      console.log(err);
+      return res.status(409).json({
+        success: false,
+        message: 'Internal server error'
+      });
+    } else if (result) {
+      return res.status(200).json({
+        success: true,
+        message: 'Currency for information with name ' + req.params.name,
+        investments: result
+      });
+    } else {
+      return res.status(200).json({
+        success: false,
+        message: 'No currency found with name ' + req.params.name
+      });
+    }
+  })
+});
+
+
 router.get('/findByCoinMarketCapID/:cmcid', function (req, res) {
   Currency.find({'coinmarketcapId': req.params.cmcid}, function(err, result) {
     if (err) {
