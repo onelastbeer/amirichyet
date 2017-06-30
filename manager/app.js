@@ -7,7 +7,7 @@ const app = express();
 app.listen(3000, function () {
   console.log('API listening on port 3000!')
 });
-
+ 
 //connecting to database
 mongoose.connect('mongodb://vault');
 

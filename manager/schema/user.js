@@ -45,6 +45,11 @@ var UserSchema = new Schema({
     default: false
   },
 
+  verified: {
+    type: Boolean,
+    default: false
+  },
+
   deleted: {
     type: Boolean,
     default: false

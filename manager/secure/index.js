@@ -40,4 +40,6 @@ router.use('/user', require('./user'));
 
 router.use('/transaction', require('./transaction'));
 
+router.use('/investment', require('./investment'));
+
 module.exports = router;
