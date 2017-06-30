@@ -18,8 +18,8 @@
   </div>
   <router-view class="view"></router-view>
   <div class="container">
-      <p v-if="error" class="error">{{ error }}</p>
-    </div>
+    <p v-if="error" class="error">{{ error }}</p>
+  </div>
 </div>
 </template>
 
@@ -59,6 +59,7 @@ export default {
 .nav {
   display: block;
   line-height: 5.2rem;
+  z-index: 1;
 }
 
 .nav-title {

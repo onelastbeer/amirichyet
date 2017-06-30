@@ -4,11 +4,11 @@ import VueRouter from 'vue-router'
 import store from './store'
 import App from './components/App.vue'
 import Login from './components/Login.vue'
+import Signup from './components/Signup.vue'
 
 Vue.use(VueRouter)
 
 const Home = { template: '<div class="container">Home</div>' }
-const Signup = { template: '<div class="container">Sign Up</div>' }
 
 const router = new VueRouter({
   mode: 'history',

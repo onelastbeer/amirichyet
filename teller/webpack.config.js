@@ -40,7 +40,12 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    allowedHosts: [
+    '*',
+    '.',
+    ],
+    disableHostCheck: true
   },
   performance: {
     hints: false
