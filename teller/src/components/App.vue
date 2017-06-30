@@ -2,19 +2,20 @@
 <div id="app">
   <div class="container nav">
     <router-link to="/" class="nav-title">
-      <h1>Am I Rich Yet ?</h1>
+      <h1 class="main-title">Am I Rich Yet ?</h1>
     </router-link>
     <ul class="float-right nav-list">
       <li class="nav-item">
-        <router-link to="/login" class="button">Log In</router-link>
+        <router-link to="/login" class="button button-2">Log In</router-link>
       </li>
       <li class="nav-item">
-        <router-link to="/signup" class="button">Sign Up</router-link>
+        <router-link to="/signup" class="button button-2">Sign Up</router-link>
       </li>
     </ul>
   </div>
   <div class="container">
-    <h3>{{ message }}</h3>
+    <h3 class="text-postive">I'm going up</h3>
+    <h3 class="text-negative">I'm going down</h3>
   </div>
   <router-view class="view"></router-view>
   <div class="container">
@@ -54,35 +55,3 @@ export default {
   },
 }
 </script>
-
-<style>
- @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.container {
-  animation: fadeIn 1s;
-}
-
-.nav {
-  display: block;
-  line-height: 5.2rem;
-  z-index: 1;
-}
-
-.nav-title {
-  display: inline-block;
-}
-
-.nav-list {
-  list-style: none;
-}
-
-.nav-item {
-  float: left;
-  margin-bottom: 0;
-  margin-left: 1.5rem;
-  position: relative;
-}
-</style>
