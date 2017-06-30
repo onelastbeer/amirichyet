@@ -16,14 +16,18 @@
   <div class="container">
     <h3>{{ message }}</h3>
   </div>
+  <router-view class="view"></router-view>
   <div class="container">
-    <router-view class="view"></router-view>
-  </div>
+      <p v-if="error" class="error">{{ error }}</p>
+    </div>
 </div>
 </template>
 
 <script>
 import utils from '../utils'
+import {
+  mapGetters,
+} from 'vuex'
 export default {
   name: 'app',
   data() {
@@ -31,6 +35,9 @@ export default {
       message: 'Waiting for transmission'
     }
   },
+  computed: mapGetters({
+    error: 'error'
+  }),
   created: function() {
     this.fetchMessage()
   },
@@ -44,7 +51,7 @@ export default {
         v.message = data
       });
     }
-  }
+  },
 }
 </script>
 

@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
+import store from './store'
+import { sync } from 'vuex-router-sync'
 import App from './components/App.vue'
+import Login from './components/Login.vue'
 
 Vue.use(VueRouter)
 
-const Home = { template: '<div>Home</div>' }
-const Login = { template: '<div>Log In</div>' }
-const Signup = { template: '<div>Sign Up</div>' }
+const Home = { template: '<div class="container">Home</div>' }
+const Signup = { template: '<div class="container">Sign Up</div>' }
 
 const router = new VueRouter({
   mode: 'history',
@@ -18,8 +21,11 @@ const router = new VueRouter({
   ]
 })
 
+sync(store, router);
+
 new Vue({
   router,
+  store,
   el: '#app',
   render: h => h(App)
 })
