@@ -56,6 +56,15 @@ export default {
 </script>
 
 <style>
+ @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.container {
+  animation: fadeIn 1s;
+}
+
 .nav {
   display: block;
   line-height: 5.2rem;
