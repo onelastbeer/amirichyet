@@ -35,7 +35,7 @@ router.post('/new', function(req, res) {
       } else {
         return res.status(200).json({
               success   : true,
-              message   : 'Used created'
+              message   : 'User created'
             });
       }});
     } else {
@@ -59,7 +59,6 @@ router.post('/authenticate', function (req, res) {
     } else if (user) {
       bcrypt.compare(data.password, user.password, function(err, match) {
         if(match) {
-
           var sign = {
             id: data.id,
             username: user.username,

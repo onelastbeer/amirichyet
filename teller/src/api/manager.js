@@ -1,3 +1,5 @@
+import VueResource from 'vue-resource'
+
 export default {
   login (username, password, cb, errorCb) {
     this.$http.get('./api/public/user/authenticate').then(response => {
@@ -6,8 +8,7 @@ export default {
     }, response => {
       errorCb();
     });
-  }
-
+  },
   signup (user, cb, errorCb) {
     this.$http.get('./api/public/user/new', {user: user}).then(response => {
       this.signupResponse = response.body;
