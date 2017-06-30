@@ -15,13 +15,13 @@ var TransactionSchema = new Schema({
   },
 
   userId: {
-    type: Schema.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: 'A user is required for this transaction'
   },
 
   currencyId: {
-    type: Schema.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Currency',
     required: 'A currency is required for this transaction'
   },

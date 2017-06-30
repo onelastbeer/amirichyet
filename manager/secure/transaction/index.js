@@ -30,12 +30,13 @@ router.get('/all', function (req, res) {
 router.post('/add', function (req, res) {
   var data = req.body.transaction;
   var user = req.decoded;
+  console.log(user._id);
   new Transaction({
     date: data.date,
-    userId: user.id,
+    userId: user._id,
     currencyId: data.currencyId,
     amount: data.amount,
-    rate: {
+    rates: {
       usd: data.rates.usd,
       eur: data.rates.eur,
       eth: data.rates.eth,

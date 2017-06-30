@@ -57,10 +57,11 @@ router.post('/authenticate', function (req, res) {
         error: 'Internal server error'
       });
     } else if (user) {
+      console.log(user);
       bcrypt.compare(data.password, user.password, function(err, match) {
         if(match) {
           var sign = {
-            id: data.id,
+            _id: user._id,
             username: user.username,
             email: user.email,
             firstName: user.firstName,

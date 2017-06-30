@@ -15,7 +15,7 @@ var InvestmentSchema = new Schema({
   },
 
   userId: {
-    type: Schema.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: 'A user is required for this transaction'
   },
