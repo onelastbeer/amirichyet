@@ -16,7 +16,7 @@ router.get('/all', function (req, res) {
       return res.status(200).json({
         success: true,
         message: 'List of all currencies that can be used on this platform',
-        investments: result
+        currencies: result
       });
     } else {
       return res.status(200).json({
@@ -39,7 +39,7 @@ router.get('/findByID/:id', function (req, res) {
       return res.status(200).json({
         success: true,
         message: 'Currency for information for id ' + req.params.id,
-        investments: result
+        currencies: result
       });
     } else {
       return res.status(200).json({
@@ -62,7 +62,7 @@ router.get('/findBySymbol/:symbol', function (req, res) {
       return res.status(200).json({
         success: true,
         message: 'Currency for information for symbol ' + req.params.symbol,
-        investments: result
+        currencies: result
       });
     } else {
       return res.status(200).json({
@@ -85,7 +85,7 @@ router.get('/findBySymbol/:name', function (req, res) {
       return res.status(200).json({
         success: true,
         message: 'Currency for information with name ' + req.params.name,
-        investments: result
+        currencies: result
       });
     } else {
       return res.status(200).json({
@@ -109,7 +109,7 @@ router.get('/findByCoinMarketCapID/:cmcid', function (req, res) {
       return res.status(200).json({
         success: true,
         message: 'Currency for information for id ' + req.params.cmcid,
-        investments: result
+        currencies: result
       });
     } else {
       return res.status(200).json({
