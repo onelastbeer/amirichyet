@@ -40,11 +40,13 @@ export default {
   methods: {
     signup() {
       this.$store.dispatch('signup', {
-        username: this.username,
-        first: this.first,
-        last: this.last,
-        email: this.email,
-        password: this.password,
+        user: {
+          username: this.username,
+          first: this.first,
+          last: this.last,
+          email: this.email,
+          password: this.password
+        },
         cb: success => {
           this.$router.replace(this.$route.query.redirect || '/')
         }

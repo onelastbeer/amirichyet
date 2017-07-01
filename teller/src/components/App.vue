@@ -22,10 +22,6 @@
       </li>
     </ul>
   </div>
-  <div class="container">
-    <h3 class="text-postive">I'm going up</h3>
-    <h3 class="text-negative">I'm going down</h3>
-  </div>
   <router-view class="view"></router-view>
   <div class="container">
     <p>Token : {{ token || "nonexistent" }}</p>
