@@ -1,12 +1,14 @@
-import VueResource from 'vue-resource'
+import axios from 'axios'
 
 export default {
   login (username, password, cb, errorCb) {
-    this.$http.get('./api/public/user/authenticate').then(response => {
-      this.loginResponse = response.body;
-      cb();
-    }, response => {
-      errorCb();
+    axios.post('./api/public/user/authenticate', {
+      username: username,
+      password: password
+    }).then(response => {
+      response.data.success ? cb(response.data.token) : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error");
     });
   },
   signup (user, cb, errorCb) {
