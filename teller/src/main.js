@@ -9,6 +9,7 @@ import Signup from './components/Signup.vue'
 Vue.use(VueRouter)
 
 const Home = { template: '<div class="container">Home</div>' }
+const Settings = { template: '<div class="container">Settings (PROTECTED !)</div>' }
 const Dashboard = { template: '<div class="container">Dashboard (PROTECTED !)</div>' }
 
 function requireAuth (to, from, next) {

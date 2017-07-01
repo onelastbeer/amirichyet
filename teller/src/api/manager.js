@@ -22,6 +22,8 @@ export default {
   checkLogin (ax, cb, errorCb) {
     ax.get('/api/secure/check').then(response => {
       response.data.success ? cb() : errorCb();
-    }).catch(err => {})
+    }).catch(error => {
+      errorCb();
+    })
   }
 }

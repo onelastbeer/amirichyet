@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     checkLogin: () => {
-      //console.log(this)
       store.dispatch('checkLogin')
     }
   },
