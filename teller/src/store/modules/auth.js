@@ -21,7 +21,7 @@ const actions = {
       username,
       password,
       () => commit(types.LOGIN_SUCCESS, { cb }),
-      () => commit(types.LOGIN_FAILURE, { username }));
+      message => commit(types.LOGIN_FAILURE, { username, message }));
   }
 }
 
@@ -38,10 +38,10 @@ const mutations = {
     state.authenticated = 'successful'
   },
 
-  [types.LOGIN_FAILURE] (state, { username }) {
+  [types.LOGIN_FAILURE] (state, { username, message }) {
     state.username = username
     state.authenticated = 'failed'
-    state.error = 'Wrong username or password'
+    state.error = message
   }
 }
 

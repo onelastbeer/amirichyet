@@ -32,7 +32,7 @@ export default {
       this.$store.dispatch('login', {
         username: this.username,
         password: this.password,
-        cb: success => {
+        cb: () => {
           this.$router.replace(this.$route.query.redirect || '/')
         }
       })
