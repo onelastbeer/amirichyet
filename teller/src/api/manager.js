@@ -6,7 +6,7 @@ export default {
       username: username,
       password: password
     }).then(response => {
-      response.data.success ? cb() : errorCb(response.data.message)
+      response.data.success ? cb(response.data.token) : errorCb(response.data.message)
     }).catch(error => {
       errorCb("Connection Error");
     });

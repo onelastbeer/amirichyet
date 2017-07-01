@@ -25,6 +25,9 @@
   </div>
   <router-view class="view"></router-view>
   <div class="container">
+    <p>Token : {{ token || "nonexistent" }}</p>
+  </div>
+  <div class="container">
     <p v-if="error" class="error">{{ error }}</p>
   </div>
 </div>
@@ -44,7 +47,8 @@ export default {
   },
   computed: mapGetters({
     error: 'error',
-    authenticated: 'authenticated'
+    authenticated: 'authenticated',
+    token: 'token'
   }),
   created: function() {
     this.fetchMessage()

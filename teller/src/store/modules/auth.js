@@ -1,15 +1,19 @@
 import manager from '../../api/manager'
 import * as types from '../mutation-types'
+import jwt from 'jsonwebtoken'
+
 
 // initial state
 const state = {
-  authenticated: null,
+  token: localStorage.token,
+  authenticated: ,
   error: null
 }
 
 // getters
 const getters = {
   authenticated: state => state.authenticated,
+  token: state => state.token,
   error: state => state.error
 }
 
@@ -20,12 +24,12 @@ const actions = {
     manager.login(
       username,
       password,
-      () => commit(types.LOGIN_SUCCESS, { cb }),
+      token => commit(types.LOGIN_SUCCESS, { cb, token }),
       message => commit(types.LOGIN_FAILURE, { username, message }));
   },
 
   logout ({ commit, state }) {
-    console.log("NOT YET IMPLEMENTED")
+    commit(types.LOGOUT);
   }
 }
 
@@ -37,8 +41,10 @@ const mutations = {
     state.error = null
   },
 
-  [types.LOGIN_SUCCESS] (state, { cb }) {
+  [types.LOGIN_SUCCESS] (state, { cb, token }) {
     state.authenticated = true
+    state.token = token
+    localStorage.token = token
     cb()
   },
 
@@ -46,6 +52,12 @@ const mutations = {
     state.username = username
     state.authenticated = false
     state.error = message
+  },
+
+  [types.LOGOUT] (state) {
+    state.token = null
+    localStorage.token = null
+    state.authenticated = null
   }
 }
 
