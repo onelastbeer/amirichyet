@@ -28,6 +28,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/dashboard', component: Dashboard, beforeEnter: requireAuth},
+    { path: '/settings', component: Settings, beforeEnter: requireAuth},
     { path: '/login', component: Login },
     { path: '/signup', component: Signup },
     { path: '/logout',

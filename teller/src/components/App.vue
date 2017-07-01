@@ -15,6 +15,9 @@
         <router-link to="/dashboard" class="button button-2">Dashboard</router-link>
       </li>
       <li class="nav-item" v-if="authenticated">
+        <router-link to="/settings" class="button button-2">Settings</router-link>
+      </li>
+      <li class="nav-item" v-if="authenticated">
         <router-link to="/logout" class="button button-2">Log Out</router-link>
       </li>
     </ul>
