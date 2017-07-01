@@ -2,7 +2,7 @@
 <div id="app">
   <div class="container nav">
     <router-link to="/" class="nav-title">
-      <h1>Am I Rich Yet ?</h1>
+      <h3>Am I Rich Yet ?</h3>
     </router-link>
     <ul class="float-right nav-list">
       <li class="nav-item">

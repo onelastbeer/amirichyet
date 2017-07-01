@@ -4,10 +4,10 @@
     <fieldset>
       <input placeholder="email" v-model="email" type="text">
       <div class="row">
-        <div class="column column-50">
+        <div class="column">
           <input placeholder="first name" v-model="first" type="text">
         </div>
-        <div class="column column-50">
+        <div class="column">
           <input placeholder="last name" v-model="last" type="text">
         </div>
       </div>
