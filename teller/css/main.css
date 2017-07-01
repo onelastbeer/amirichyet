@@ -49,14 +49,41 @@ body, html {
   border-color: #41A7C5;
 }
 
+.button-1.button-1-clear,
+.button-1.button-1-outline {
+  background-color: transparent;
+  color: #41A7C5;
+}
+.button-1.button-1-clear {
+  border-color: transparent;
+}
+
 .button-2 {
   background-color: #006680;
   border-color: #006680;
 }
 
+.button-2.button-2-clear,
+.button-2.button-2-outline {
+  background-color: transparent;
+  color: #006680;
+}
+.button-2.button-2-clear {
+  border-color: transparent;
+}
+
 .button-3 {
   background-color: #BFEBF6;
   border-color: #BFEBF6;
+}
+
+.button-3.button-3-clear,
+.button-3.button-3-outline {
+  background-color: transparent;
+  color: #BFEBF6;
+}
+.button-3.button-3-clear {
+  border-color: transparent;
 }
 
 .text-postive {
