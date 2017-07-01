@@ -1,12 +1,12 @@
 import manager from '../../api/manager'
 import * as types from '../mutation-types'
-import jwt from 'jsonwebtoken'
+//import jwt from 'jsonwebtoken'
 
 
 // initial state
 const state = {
   token: localStorage.token,
-  authenticated: ,
+  authenticated: null,
   error: null
 }
 

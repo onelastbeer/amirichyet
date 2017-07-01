@@ -51,6 +51,7 @@ export default {
     token: 'token'
   }),
   created: function() {
+    // CHECK TOKEN HERE
     this.fetchMessage()
   },
   methods: {
