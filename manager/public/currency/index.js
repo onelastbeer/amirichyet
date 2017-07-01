@@ -38,7 +38,7 @@ router.get('/findByID/:id', function (req, res) {
     } else if (result) {
       return res.status(200).json({
         success: true,
-        message: 'Currency for information for id ' + req.params.id,
+        message: 'Currency information for id ' + req.params.id,
         currencies: result
       });
     } else {
@@ -61,7 +61,7 @@ router.get('/findBySymbol/:symbol', function (req, res) {
     } else if (result) {
       return res.status(200).json({
         success: true,
-        message: 'Currency for information for symbol ' + req.params.symbol,
+        message: 'Currency information for symbol ' + req.params.symbol,
         currencies: result
       });
     } else {
@@ -84,7 +84,7 @@ router.get('/findBySymbol/:name', function (req, res) {
     } else if (result) {
       return res.status(200).json({
         success: true,
-        message: 'Currency for information with name ' + req.params.name,
+        message: 'Currency information with name ' + req.params.name,
         currencies: result
       });
     } else {
