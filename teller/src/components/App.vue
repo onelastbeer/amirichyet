@@ -5,11 +5,17 @@
       <h1 class="main-title">Am I Rich Yet ?</h1>
     </router-link>
     <ul class="float-right nav-list">
-      <li class="nav-item">
+      <li class="nav-item" v-if="!authenticated">
         <router-link to="/login" class="button button-2">Log In</router-link>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="!authenticated">
         <router-link to="/signup" class="button button-2">Sign Up</router-link>
+      </li>
+      <li class="nav-item" v-if="authenticated">
+        <router-link to="/dashboard" class="button button-2">Dashboard</router-link>
+      </li>
+      <li class="nav-item" v-if="authenticated">
+        <router-link to="/logout" class="button button-2">Log Out</router-link>
       </li>
     </ul>
   </div>
@@ -37,7 +43,8 @@ export default {
     }
   },
   computed: mapGetters({
-    error: 'error'
+    error: 'error',
+    authenticated: 'authenticated'
   }),
   created: function() {
     this.fetchMessage()

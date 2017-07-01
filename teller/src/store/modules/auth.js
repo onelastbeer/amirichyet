@@ -23,6 +23,10 @@ const actions = {
       () => commit(types.LOGIN_SUCCESS, { cb }),
       message => commit(types.LOGIN_FAILURE, { username, message }));
   }
+  
+  logout ({ commit, state }) {
+    console.log("NOT YET IMPLEMENTED")
+  }
 }
 
 // mutations

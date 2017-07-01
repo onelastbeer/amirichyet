@@ -33,7 +33,7 @@ export default {
         username: this.username,
         password: this.password,
         cb: () => {
-          this.$router.replace(this.$route.query.redirect || '/')
+          this.$router.replace(this.$route.query.redirect || '/dashboard')
         }
       })
     }
