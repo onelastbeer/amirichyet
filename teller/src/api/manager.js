@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
   login (username, password, cb, errorCb) {
-    axios.post('./api/public/user/authenticate', {
+    axios.post('/api/public/user/authenticate', {
       username: username,
       password: password
     }).then(response => {
@@ -18,5 +18,10 @@ export default {
     }, response => {
       errorCb();
     });
+  },
+  checkLogin (ax, cb, errorCb) {
+    ax.get('/api/secure/check').then(response => {
+      response.data.success ? cb() : errorCb();
+    }).catch(err => {})
   }
 }

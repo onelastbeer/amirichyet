@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import auth from '../store/modules/auth'
 import {
   mapGetters,
 } from 'vuex'

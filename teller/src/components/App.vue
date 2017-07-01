@@ -34,35 +34,25 @@
 </template>
 
 <script>
-import utils from '../utils'
 import {
   mapGetters,
 } from 'vuex'
+import store from '../store'
+
 export default {
   name: 'app',
-  data() {
-    return {
-      message: 'Waiting for transmission'
-    }
-  },
   computed: mapGetters({
     error: 'error',
     authenticated: 'authenticated',
     token: 'token'
   }),
-  created: function() {
-    // CHECK TOKEN HERE
-    this.fetchMessage()
+  mounted: function() {
+    this.checkLogin()
   },
   methods: {
-    humanizeURL: function(url) {
-      return url.replace(/^https?:\/\//, '').replace(/\/$/, '')
-    },
-    fetchMessage: function() {
-      var v = this;
-      utils.get('/api/hi', function(data) {
-        v.message = data
-      });
+    checkLogin: () => {
+      //console.log(this)
+      store.dispatch('checkLogin')
     }
   },
 }

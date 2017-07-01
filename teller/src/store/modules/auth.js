@@ -1,13 +1,13 @@
 import manager from '../../api/manager'
 import * as types from '../mutation-types'
-//import jwt from 'jsonwebtoken'
-
+import axios from 'axios'
 
 // initial state
 const state = {
   token: localStorage.token,
   authenticated: null,
-  error: null
+  error: null,
+  ax: axios.create({headers: { 'x-access-token': localStorage.token }})
 }
 
 // getters
@@ -29,7 +29,13 @@ const actions = {
   },
 
   logout ({ commit, state }) {
-    commit(types.LOGOUT);
+    commit(types.LOGOUT)
+  },
+
+  checkLogin({commit, state}) {
+    var cb = () => {}
+    var token = state.token
+    manager.checkLogin(state.ax , () => commit(types.LOGIN_SUCCESS, {cb, token}), () => commit(types.LOGOUT))
   }
 }
 
