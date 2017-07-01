@@ -22,8 +22,8 @@ const actions = {
       password,
       () => commit(types.LOGIN_SUCCESS, { cb }),
       message => commit(types.LOGIN_FAILURE, { username, message }));
-  }
-  
+  },
+
   logout ({ commit, state }) {
     console.log("NOT YET IMPLEMENTED")
   }
@@ -38,13 +38,13 @@ const mutations = {
   },
 
   [types.LOGIN_SUCCESS] (state, { cb }) {
+    state.authenticated = true
     cb()
-    state.authenticated = 'successful'
   },
 
   [types.LOGIN_FAILURE] (state, { username, message }) {
     state.username = username
-    state.authenticated = 'failed'
+    state.authenticated = false
     state.error = message
   }
 }
