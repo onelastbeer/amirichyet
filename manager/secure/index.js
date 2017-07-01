@@ -36,6 +36,13 @@ router.use(function(req, res, next) {
     }
   })
 
+app.get('/check', function (req, res) {
+  res.status(200).json({
+    { success: true,
+      message: 'Your token is valid' }
+  })
+})
+
 router.use('/user', require('./user'));
 
 router.use('/transaction', require('./transaction'));
