@@ -4,7 +4,7 @@
     <fieldset>
       <input placeholder="username" v-model="username" type="text">
       <input placeholder="password" v-model="password" type="password">
-      <input class="button-primary" value="Login" type="submit">
+      <input class="button button-1" value="Login" type="submit">
     </fieldset>
   </form>
 </div>
@@ -40,10 +40,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.form {
-  max-width: 450px;
-  margin: 60px auto;
-}
-</style>

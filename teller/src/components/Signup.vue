@@ -13,7 +13,8 @@
       </div>
       <input placeholder="username" v-model="username" type="text">
       <input placeholder="password" v-model="password" type="password">
-      <input class="button-primary" value="Signup" type="submit">
+      <input placeholder="retype password" v-model="password2" type="password">
+      <input class="button button-1" value="Signup" type="submit">
     </fieldset>
   </form>
 </div>
