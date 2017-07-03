@@ -44,7 +44,7 @@ body, html {
  position: relative;
 }
 
-.button-1 {
+.button-1, input[type="submit"]{
   background-color: #41A7C5;
   border-color: #41A7C5;
 }
