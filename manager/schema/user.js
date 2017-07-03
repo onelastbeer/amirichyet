@@ -52,6 +52,41 @@ var UserSchema = new Schema({
   deleted: {
     type: Boolean,
     default: false
+  },
+
+  settings: {
+    showQuantity: {
+      type: Boolean,
+      default: true
+    },
+    showOriginalRate: {
+      type: Boolean,
+      default: true
+    },
+    showCurrentRate: {
+      type: Boolean,
+      default: true
+    },
+    showOriginalValue: {
+      type: Boolean,
+      default: false
+    },
+    showCurrentValue: {
+      type: Boolean,
+      default: false
+    },
+    showProfitLoss: {
+      type: Boolean,
+      default: true
+    },
+    showProfitLossPercentage: {
+      type: Boolean,
+      default: true
+    },
+    theme: {
+      type: String,
+      default: "Dark"
+    }
   }
 });
 

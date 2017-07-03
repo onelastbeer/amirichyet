@@ -101,7 +101,7 @@ router.post('/edit', function(req, res) {
   User.update({ id: user.id}, {
     lastName: user.lastName,
     firstName: user.firstName,
-    username: user.username
+    username: user.username.toLowerCase()
     }, (err) => {
     if(err) {
       console.error(err);
