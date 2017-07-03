@@ -3,7 +3,7 @@ body, html {
   margin: 0;
   font-family: 'Jaldi', sans-serif;
   color: #BFEBF6;
-  background-color: #131C1B;
+  background-image: linear-gradient( 135deg, #131C1B 0%, #002661 100%);
 }
 
 .main-background {
