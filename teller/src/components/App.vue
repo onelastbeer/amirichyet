@@ -2,7 +2,7 @@
 <div id="app">
   <div class="container nav">
     <router-link to="/" class="nav-title">
-      <h1 class="main-title">Am I Rich Yet ?</h1>
+      <img class="nav-logo" src="../../resources/AIRY2.png">
     </router-link>
     <ul class="float-right nav-list">
       <li class="nav-item" v-if="!authenticated">
@@ -24,10 +24,9 @@
   </div>
   <router-view class="view"></router-view>
   <div class="container">
-    <p>Token : {{ token || "nonexistent" }}</p>
-  </div>
-  <div class="container">
-    <p v-if="error" class="error">{{ error }}</p>
+    <div v-if="error" class="error">
+      <span style="font-weight:900">Error: </span>{{ error }}
+    </div>
   </div>
 </div>
 </template>

@@ -91,7 +91,7 @@ body, html {
 }
 
 .text-negative {
-  color: #8E1C1C
+  color: #8E1C1C;
 }
 
 .form {
@@ -101,4 +101,30 @@ body, html {
 
 input {
   color: #BFEBF6;
+}
+
+.nav-logo {
+  max-height: 70px;
+}
+
+.error-container {
+  align-items: center;
+}
+
+.error {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  color: #8E1C1C;
+  background-color: #AC5959;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 7px;
+  vertical-align: middle;
+}
+
+.bold {
+  font-weight: bold;
 }

@@ -39,7 +39,8 @@ router.post('/add', function (req, res) {
       eur: data.amounts.eur,
       eth: data.amounts.eth,
       btc: data.amounts.btc
-    }
+    },
+    received: data.received
   }).save(function (err) {
   if (err) {
     console.error(err);
@@ -72,7 +73,8 @@ router.post('/edit', function (req, res) {
         eur: data.amounts.eur,
         eth: data.amounts.eth,
         btc: data.amounts.btc
-      }
+      },
+      received: data.received
     } ,function (err, match) {
     if (!match || err || (user.id != data.userId && !user.superUser)) {
       console.error(err);
