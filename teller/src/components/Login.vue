@@ -35,7 +35,17 @@ export default {
           this.$router.replace(this.$route.query.redirect || '/dashboard')
         }
       })
-    }
+    },
+    checkLogin() {
+      this.$store.dispatch('checkLogin', {
+        cb: () => {
+          this.$router.replace(this.$route.query.redirect || '/dashboard');
+        }
+      })
+    },
+  },
+  mounted: function() {
+    this.checkLogin()
   }
 }
 </script>

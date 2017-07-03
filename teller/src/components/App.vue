@@ -43,14 +43,6 @@ export default {
     error: 'error',
     authenticated: 'authenticated',
     token: 'token'
-  }),
-  mounted: function() {
-    this.checkLogin()
-  },
-  methods: {
-    checkLogin: () => {
-      store.dispatch('checkLogin')
-    }
-  },
+  })
 }
 </script>

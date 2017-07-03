@@ -37,10 +37,9 @@ const actions = {
     commit(types.LOGOUT)
   },
 
-  checkLogin({commit, state}) {
-    var cb = () => {}
+  checkLogin({commit, state}, { cb }) {
     var token = state.token
-    manager.checkLogin(state.ax , () => commit(types.LOGIN_SUCCESS, {cb, token}), () => commit(types.LOGOUT))
+    manager.checkLogin(state.ax , () => commit(types.LOGIN_SUCCESS, { cb, token }), () => commit(types.LOGOUT))
   }
 }
 
@@ -74,6 +73,7 @@ const mutations = {
   [types.LOGOUT] (state) {
     state.token = null
     localStorage.token = null
+    state.ax = axios.create()
     state.authenticated = null
   }
 }

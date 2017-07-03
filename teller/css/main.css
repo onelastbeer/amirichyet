@@ -23,6 +23,20 @@ body, html {
    to {opacity: 1;}
 }
 
+@media (orientation: portrait) {
+  .hide-portrait {
+    display: none;
+  }
+}
+
+.first-col {
+  text-align: left;
+}
+
+td, th {
+  text-align: right;
+}
+
 .container {
  animation: fadeIn 1s;
 }
@@ -31,6 +45,7 @@ body, html {
  display: block;
  line-height: 5.2rem;
  z-index: 1;
+ top: 1em;
 }
 
 .nav-list {
