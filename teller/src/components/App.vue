@@ -2,7 +2,7 @@
 <div id="app">
   <div class="container nav">
     <router-link to="/" class="nav-title">
-      <img class="nav-logo" src="../../resources/AIRY2.png">
+      <img class="nav-logo" src="../../resources/AIRY3.png">
     </router-link>
     <ul class="float-right nav-list">
       <li class="nav-item" v-if="!authenticated">
