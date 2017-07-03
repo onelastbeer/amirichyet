@@ -12,11 +12,12 @@ export default {
     });
   },
   signup (user, cb, errorCb) {
-    this.$http.get('./api/public/user/new', {user: user}).then(response => {
-      this.signupResponse = response.body;
-      cb();
-    }, response => {
-      errorCb();
+    axios.get('./api/public/user/new', {
+      user: user
+    }).then(response => {
+      response.data.success ? cb() : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error");
     });
   },
   checkLogin (ax, cb, errorCb) {
