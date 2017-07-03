@@ -6,6 +6,9 @@ import App from './components/App.vue'
 import Login from './components/Login.vue'
 import Signup from './components/Signup.vue'
 import Home from './components/Home.vue'
+import Setting from './components/Settings.vue'
+import Dashboard from './components/Dashboard.vue'
+import Verify from './components/Verify.vue'
 
 Vue.use(VueRouter)
 
