@@ -29,9 +29,9 @@ const actions = {
   },
 
   signup ({ commit, state }, { user, cb }) {
-    commit(types.LOGIN_REQUEST)
     manager.signup(
       user,
+      () => commit(types.SIGNUP_SUCCESS, { cb }),
       message => commit(types.SIGNUP_FAILURE, { message })
     );
   },
@@ -66,6 +66,10 @@ const mutations = {
     state.username = username
     state.authenticated = false
     state.error = message
+  },
+
+  [types.SIGNUP_SUCCESS] (state, { cb }) {
+    cb()
   },
 
   [types.SIGNUP_FAILURE] (state, { message }) {

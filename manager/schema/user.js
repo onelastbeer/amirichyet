@@ -29,7 +29,6 @@ var UserSchema = new Schema({
   password: {
     type: String,
     required: 'Password is required for this currency',
-    unique: true
   },
 
   email: {

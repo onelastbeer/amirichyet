@@ -9,6 +9,7 @@ import Signup from './components/Signup.vue'
 Vue.use(VueRouter)
 
 const Home = { template: '<div class="container">Home</div>' }
+const Verify = { template: '<div class="container">Please check your email to start using Am I Rich Yet (NOT YET IMPLEMENTED, GO TO LOGIN !)</div>' }
 const Settings = { template: '<div class="container">Settings (PROTECTED !)</div>' }
 const Dashboard = { template: '<div class="container">Dashboard (PROTECTED !)</div>' }
 
@@ -32,6 +33,7 @@ const router = new VueRouter({
     { path: '/settings', component: Settings, beforeEnter: requireAuth},
     { path: '/login', component: Login },
     { path: '/signup', component: Signup },
+    { path: '/verify', component: Verify },
     { path: '/logout',
       beforeEnter (to, from, next) {
         store.dispatch('logout')

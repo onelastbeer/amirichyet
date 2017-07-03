@@ -48,7 +48,7 @@ export default {
           password: this.password
         },
         cb: success => {
-          this.$router.replace(this.$route.query.redirect || '/')
+          this.$router.replace('/verify')
         }
       })
     }

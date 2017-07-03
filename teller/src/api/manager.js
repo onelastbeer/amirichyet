@@ -12,7 +12,7 @@ export default {
     });
   },
   signup (user, cb, errorCb) {
-    axios.get('./api/public/user/new', {
+    axios.post('/api/public/user/new', {
       user: user
     }).then(response => {
       response.data.success ? cb() : errorCb(response.data.message)
