@@ -20,7 +20,7 @@ router.post('/new', function(req, res) {
           });
     } else if (!match) {
       new User({
-        username: data.username,
+        username: data.username.toLowerCase(),
         password: bcrypt.hashSync(data.password, salt),
         email: data.email,
         firstName: data.firstName,
@@ -49,12 +49,12 @@ router.post('/new', function(req, res) {
 
 router.post('/authenticate', function (req, res) {
   var data = req.body;
-  User.findOne({'username': data.username, deleted: false}, function(err, user) {
+  User.findOne({'username': data.username.toLowerCase(), deleted: false}, function(err, user) {
     if (err) {
       console.log(err);
       return res.status(409).json({
         success: false,
-        error: 'Internal server error'
+        error: 'Internal server error' 
       });
     } else if (user) {
       console.log(user);

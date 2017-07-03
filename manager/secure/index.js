@@ -45,6 +45,8 @@ router.get('/check', function (req, res) {
 
 router.use('/user', require('./user'));
 
+router.use('/admin', require('./admin'));
+
 router.use('/transaction', require('./transaction'));
 
 router.use('/investment', require('./investment'));

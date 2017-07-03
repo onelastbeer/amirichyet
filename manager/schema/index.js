@@ -19,7 +19,7 @@ module.exports = () => {
     if (err) throw err;
     if(!match) {
       new User({
-        username: rootUsername,
+        username: rootUsername.toLowerCase(),
         password: bcrypt.hashSync(rootPassword, salt),
         email: rootEmail,
         lastName: 'God',

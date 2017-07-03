@@ -103,6 +103,10 @@ input {
   color: #BFEBF6;
 }
 
+input:focus {
+  color: #BFEBF6;
+}
+
 .nav-logo {
   max-height: 70px;
 }
