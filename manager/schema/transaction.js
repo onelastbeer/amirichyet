@@ -48,10 +48,10 @@ var TransactionSchema = new Schema({
     }
   },
 
-  deleted: {
+  received: {
     type: Boolean,
     default: false
-  }
+  },
 
   deleted: {
     type: Boolean,
