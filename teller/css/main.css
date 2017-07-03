@@ -55,7 +55,8 @@ body, html {
 }
 
 thead {
-  color: #006680;
+  color: #41A7C5;
+  font-weight: bold;
 }
 
 .nav-item {

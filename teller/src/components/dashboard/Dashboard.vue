@@ -3,7 +3,7 @@
   <table class="currency-table">
     <thead>
       <tr>
-        <th class="first-col">Curency</th>
+        <th class="first-col">Currency</th>
         <th class="hide-portrait">Quantity</th>
         <th class="hide-portrait">Original Rate</th>
         <th class="hide-portrait">Current Rate</th>
