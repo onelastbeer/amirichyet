@@ -28,6 +28,11 @@
       <span style="font-weight:900">Error: </span>{{ error }}
     </div>
   </div>
+  <div class="footer-bar">
+    <div class="container">
+      © 2017 - Louis Merlin, Ambroise Mean
+    </div>
+  </div>
 </div>
 </template>
 
