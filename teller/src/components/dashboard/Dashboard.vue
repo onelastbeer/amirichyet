@@ -13,8 +13,9 @@
         <th>Profit/Loss [%]</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
+    <tbody >
+      <currency v-for="currency in currencies" :key="currency" :symbol="currency"></currency>
+      <!--<tr>
         <td class="first-col">BTC</td>
         <td class="hide-portrait">1.0</td>
         <td class="hide-portrait">342.5</td>
@@ -33,7 +34,7 @@
         <td class="hide-portrait">2522.67</td>
         <td class="hide-portrait">2180.17</td>
         <td>736.54%</td>
-      </tr>
+      </tr>-->
     </tbody>
   </table>
   <a class="button button-1">Add Transaction</a>
@@ -42,5 +43,15 @@
 </template>
 
 <script>
-export default {}
+import {
+  mapGetters,
+} from 'vuex'
+import Currency from './Currency.vue'
+
+export default {
+  components: { Currency },
+  computed: mapGetters({
+    currencies: 'currencies'
+  }),
+}
 </script>

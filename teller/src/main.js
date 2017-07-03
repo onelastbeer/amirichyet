@@ -7,7 +7,7 @@ import Login from './components/Login.vue'
 import Signup from './components/Signup.vue'
 import Home from './components/Home.vue'
 import Settings from './components/Settings.vue'
-import Dashboard from './components/Dashboard.vue'
+import Dashboard from './components/dashboard/Dashboard.vue'
 import Verify from './components/Verify.vue'
 
 Vue.use(VueRouter)
