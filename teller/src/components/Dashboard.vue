@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <table>
+  <table class="currency-table">
     <thead>
       <tr>
         <th class="first-col">Curency</th>
@@ -25,14 +25,14 @@
         <td>736.54%</td>
       </tr>
       <tr>
-        <td class="first-col">BTC</td>
-        <td class="hide-portrait">1.0</td>
-        <td class="hide-portrait">342.5</td>
-        <td class="hide-portrait">2522.67</td>
-        <td class="hide-portrait">342.5</td>
-        <td class="hide-portrait">2522.67</td>
-        <td class="hide-portrait">2180.17</td>
-        <td>736.54%</td>
+        <td class="first-col">ETH</td>
+        <td class="hide-portrait">2.0</td>
+        <td class="hide-portrait">231.4</td>
+        <td class="hide-portrait">253.67</td>
+        <td class="hide-portrait">462.8</td>
+        <td class="hide-portrait">507.13</td>
+        <td class="hide-portrait">43.33</td>
+        <td>9.58%</td>
       </tr>
     </tbody>
   </table>

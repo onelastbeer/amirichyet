@@ -46,8 +46,8 @@ router.get('/settings', function (req, res) {
       if(user.settings) {
         return res.status(200).json({
           success: true,
-          message: 'User information',
-          user: user.settings
+          message: 'User settings',
+          settings: user.settings
         });
       } else {
         return res.status(200).json({
@@ -60,6 +60,51 @@ router.get('/settings', function (req, res) {
         success: false,
         message: 'User not found'
       });
+    }
+  })
+});
+
+router.post('/settings', function (req, res) {
+  var user = req.decoded;
+  var data = req.body;
+  User.findOne({'id': user.id}, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.status(409).json('Server Error');
+    } else {
+      user.settings = {
+        showQuantity: data.settings.showQuantity,
+  	    showOriginalRate: data.settings.showOriginalRate,
+  	    showCurrentRate: data.settings.showCurrentRate,
+  	    showOriginalValue: data.settings.showOriginalValue,
+  	    showCurrentValue: data.settings.showCurrentValue,
+  	    showProfitLoss: data.settings.showProfitLoss,
+  	    showProfitLossPercentage: data.settings.showProfitLossPercentage,
+  	    theme: data.settings.theme
+      }
+      user.save((err) => {
+        if (err) {
+          console.log(err);
+          return res.status(409).json('Server Error');
+        } else if (user) {
+          if(user.settings) {
+            return res.status(200).json({
+              success: true,
+              message: 'Settings updated'
+            });
+          } else {
+            return res.status(200).json({
+              success: false,
+              message: 'Unable to update settings'
+            });
+          }
+        } else {
+          return res.status(200).json({
+            success: false,
+            message: 'User not found'
+          });
+        }
+      })
     }
   })
 });

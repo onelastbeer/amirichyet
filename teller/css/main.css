@@ -33,7 +33,7 @@ body, html {
   text-align: left;
 }
 
-td, th {
+.currency-table {
   text-align: right;
 }
 
@@ -46,6 +46,8 @@ td, th {
  line-height: 5.2rem;
  z-index: 1;
  top: 1em;
+ padding-bottom: 20px;
+ margin-bottom: 10px;
 }
 
 .nav-list {
@@ -116,6 +118,10 @@ td, th {
   margin: 60px auto;
 }
 
+.color-1 {
+  color: #41A7C5;
+}
+
 input {
   color: #BFEBF6;
 }
@@ -126,6 +132,20 @@ input[type="text"]:focus {
 
 input[type="password"]:focus {
   border-color: #41A7C5;
+}
+
+select {
+  color: #BFEBF6;
+  background: transparent;
+}
+
+select:focus {
+  border-color: #41A7C5;
+  background: transparent;
+}
+
+.settings-table {
+  text-align: left;
 }
 
 .nav-logo {

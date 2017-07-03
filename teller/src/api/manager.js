@@ -26,5 +26,21 @@ export default {
     }).catch(error => {
       errorCb();
     })
+  },
+  getSettings (ax, cb, errorCb) {
+    ax.get('/api/secure/user/settings').then(response => {
+      response.data.success ? cb(response.data.settings) : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb();
+    })
+  },
+  saveSettings (settings, cb, errorCb) {
+    ax.post('/api/secure/user/settings', {
+      settings: settings
+    }).then(response => {
+      response.data.success ? cb(response.data.settings) : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb();
+    })
   }
 }
