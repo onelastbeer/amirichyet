@@ -12,10 +12,6 @@ import Verify from './components/Verify.vue'
 
 Vue.use(VueRouter)
 
-const Verify = { template: '<div class="container">Please check your email to start using Am I Rich Yet (NOT YET IMPLEMENTED, GO TO LOGIN !)</div>' }
-const Settings = { template: '<div class="container">Settings (PROTECTED !)</div>' }
-const Dashboard = { template: '<div class="container">Dashboard (PROTECTED !)</div>' }
-
 function requireAuth (to, from, next) {
   if (!store.state.auth.authenticated) {
     next({
