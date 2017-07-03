@@ -5,7 +5,7 @@ const Currency = mongoose.model('Currency');
 var router = express.Router();
 
 router.post('/delete', function(req, res) {
-  var currency = req.body.user;
+  var currency = req.body.currency;
   Currency.update({ id: currency.id }, {deleted: true}, (err) => {
     if(err) {
       console.error(err);
@@ -23,7 +23,7 @@ router.post('/delete', function(req, res) {
 });
 
 router.post('/reactivate', function(req, res) {
-  var currency = req.body.user;
+  var currency = req.body.currency;
   Currency.update({ id: currency.id }, {deleted: false}, (err) => {
     if(err) {
       console.error(err);

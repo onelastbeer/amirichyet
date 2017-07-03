@@ -5,10 +5,10 @@ import store from './store'
 import App from './components/App.vue'
 import Login from './components/Login.vue'
 import Signup from './components/Signup.vue'
+import Home from './components/Home.vue'
 
 Vue.use(VueRouter)
 
-const Home = { template: '<div class="container">Home</div>' }
 const Verify = { template: '<div class="container">Please check your email to start using Am I Rich Yet (NOT YET IMPLEMENTED, GO TO LOGIN !)</div>' }
 const Settings = { template: '<div class="container">Settings (PROTECTED !)</div>' }
 const Dashboard = { template: '<div class="container">Dashboard (PROTECTED !)</div>' }

@@ -15,7 +15,7 @@ router.use(function(req, res, next) {
       next();
     }
   })
-}
+});
 
 router.use('/user', require('./user'));
 router.use('/currency', require('./currency'));
