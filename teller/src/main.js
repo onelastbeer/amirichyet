@@ -42,6 +42,11 @@ const router = new VueRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  store.dispatch('clearError');
+  next();
+})
+
 new Vue({
   router,
   store,

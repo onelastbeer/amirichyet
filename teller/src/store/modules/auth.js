@@ -6,7 +6,6 @@ import axios from 'axios'
 const state = {
   token: localStorage.token,
   authenticated: null,
-  error: null,
   ax: axios.create({headers: { 'x-access-token': localStorage.token }})
 }
 
@@ -14,7 +13,6 @@ const state = {
 const getters = {
   authenticated: state => state.authenticated,
   token: state => state.token,
-  error: state => state.error
 }
 
 // actions
@@ -32,8 +30,7 @@ const actions = {
     manager.signup(
       user,
       () => commit(types.SIGNUP_SUCCESS, { cb }),
-      message => commit(types.SIGNUP_FAILURE, { message })
-    );
+      message => commit(types.SIGNUP_FAILURE, { message }));
   },
 
   logout ({ commit, state }) {
@@ -52,7 +49,6 @@ const mutations = {
   [types.LOGIN_REQUEST] (state) {
     state.username = ''
     state.authenticated = null
-    state.error = null
   },
 
   [types.LOGIN_SUCCESS] (state, { cb, token }) {
@@ -65,16 +61,14 @@ const mutations = {
   [types.LOGIN_FAILURE] (state, { username, message }) {
     state.username = username
     state.authenticated = false
-    state.error = message
   },
 
   [types.SIGNUP_SUCCESS] (state, { cb }) {
     cb()
   },
 
-  [types.SIGNUP_FAILURE] (state, { message }) {
+  [types.SIGNUP_FAILURE] (state) {
     state.authenticated = false
-    state.error = message
   },
 
   [types.LOGOUT] (state) {
