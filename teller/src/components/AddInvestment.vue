@@ -48,7 +48,12 @@
           </div>
         </div>
         <div class="row">
-          <input class="button button-1" value="Save" type="submit">
+          <div class="button-list">
+            <input class="button button-1 " value="Save" type="submit">
+          </div>
+          <div class="button-list">
+            <input class="button button-3" value="Cancel" type="submit">
+          </div>
         </div>
       </fieldset>
     </form>

@@ -131,6 +131,11 @@ input {
   color: #BFEBF6;
 }
 
+.button-list {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 input[type="text"]:focus {
   border-color: #41A7C5;
 }
