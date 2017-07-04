@@ -67,7 +67,7 @@ router.post('/promote', function(req, res) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to promote user'
+            message   : err.message
           });
     } else {
       return res.status(200).json({
@@ -85,7 +85,7 @@ router.post('/demote', function(req, res) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to demote user'
+            message   : err.message
           });
     } else {
       return res.status(200).json({
@@ -101,13 +101,14 @@ router.post('/edit', function(req, res) {
   User.update({ id: user.id}, {
     lastName: user.lastName,
     firstName: user.firstName,
-    username: user.username.toLowerCase()
+    username: user.username.toLowerCase(),
+    email: user.email
     }, (err) => {
     if(err) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to edit user'
+            message   : err.message
           });
     } else {
       return res.status(200).json({

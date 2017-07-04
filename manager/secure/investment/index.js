@@ -45,7 +45,8 @@ router.post('/add', function (req, res) {
     console.error(err);
     return res.status(200).json({
           success   : false,
-          message   : 'Unable to add new investment'
+          message   : err.message
+
         });
   } else {
     return res.status(200).json({
@@ -78,7 +79,7 @@ router.post('/edit', function (req, res) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to delete investment ' + data.id
+            message   : err.message
           });
     } else {
       return res.status(200).json({

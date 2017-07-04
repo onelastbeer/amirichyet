@@ -96,7 +96,7 @@ router.post('/settings', function (req, res) {
           } else {
             return res.status(200).json({
               success: false,
-              message: 'Unable to update settings'
+              message: err.message
             });
           }
         } else {
