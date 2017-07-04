@@ -139,6 +139,20 @@ input[type="password"]:focus {
   border-color: #41A7C5;
 }
 
+input[type="number"]:focus {
+  border-color: #41A7C5;
+}
+
+input[type="date"]:focus {
+  color: #006680;
+  border-color: #006680;
+}
+
+input[type="date"] {
+  color: #006680;
+  border-color: #006680;
+}
+
 select {
   color: #BFEBF6;
   background: transparent;

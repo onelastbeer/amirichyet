@@ -9,6 +9,8 @@ import Home from './components/Home.vue'
 import Settings from './components/Settings.vue'
 import Dashboard from './components/dashboard/Dashboard.vue'
 import Verify from './components/Verify.vue'
+import AddTransaction from './components/AddTransaction.vue'
+import AddInvestment from './components/AddInvestment.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +35,8 @@ const router = new VueRouter({
     { path: '/login', component: Login },
     { path: '/signup', component: Signup },
     { path: '/verify', component: Verify },
+    { path: '/add_transaction', component: AddTransaction },
+    { path: '/add_investment', component: AddInvestment },
     { path: '/logout',
       beforeEnter (to, from, next) {
         store.dispatch('logout')
