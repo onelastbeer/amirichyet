@@ -1,5 +1,6 @@
 <template>
 <div id="app">
+  <div class="background"></div>
   <div class="container nav">
     <router-link to="/" class="nav-title">
       <img class="nav-logo" src="../../resources/AIRY3.png">

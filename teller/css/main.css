@@ -3,11 +3,16 @@ body, html {
   margin: 0;
   font-family: 'Jaldi', sans-serif;
   color: #BFEBF6;
-  background-image: linear-gradient( 135deg, #131C1B 0%, #002661 100%);
 }
 
-.main-background {
-  background-color: #131C1B;
+.background {
+  position: fixed;
+  z-index: -1;
+  background: linear-gradient( 135deg, #131C1B 0%, #002661 100%);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .nav-title {
@@ -19,8 +24,12 @@ body, html {
 }
 
 @keyframes fadeIn {
-   from {opacity: 0;}
-   to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (orientation: portrait) {
@@ -38,20 +47,20 @@ body, html {
 }
 
 .container {
- animation: fadeIn 1s;
+  animation: fadeIn 1s;
 }
 
 .nav {
- display: block;
- line-height: 5.2rem;
- z-index: 1;
- top: 1em;
- padding-bottom: 20px;
- margin-bottom: 10px;
+  display: block;
+  line-height: 5.2rem;
+  z-index: 1;
+  top: 1em;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .nav-list {
- list-style: none;
+  list-style: none;
 }
 
 thead {
@@ -60,22 +69,22 @@ thead {
 }
 
 .nav-item {
- float: left;
- margin-bottom: 0;
- margin-left: 1.5rem;
- position: relative;
+  float: left;
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+  position: relative;
 }
 
-.button-1{
+.button-1 {
   background-color: #41A7C5;
   border-color: #41A7C5;
 }
 
-.button-1.button-1-clear,
-.button-1.button-1-outline {
+.button-1.button-1-clear, .button-1.button-1-outline {
   background-color: transparent;
   color: #41A7C5;
 }
+
 .button-1.button-1-clear {
   border-color: transparent;
 }
@@ -85,12 +94,12 @@ thead {
   border-color: #006680;
 }
 
-.button-2.button-2-clear,
-.button-2.button-2-outline {
+.button-2.button-2-clear, .button-2.button-2-outline {
   background-color: transparent;
   border-color: #006680;
   color: #006680;
 }
+
 .button-2.button-2-clear {
   border-color: transparent;
 }
@@ -101,11 +110,11 @@ thead {
   color: #006680;
 }
 
-.button-3.button-3-clear,
-.button-3.button-3-outline {
+.button-3.button-3-clear, .button-3.button-3-outline {
   background-color: transparent;
   color: #BFEBF6;
 }
+
 .button-3.button-3-clear {
   border-color: transparent;
 }
@@ -207,15 +216,25 @@ select:focus {
 }
 
 @media only screen and (min-width: 601px) {
+  #app {
+    margin-bottom: 60px;
+  }
   .footer-bar {
-    position: absolute;
-    bottom: 0;
-    left:0;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    left: 0;
   }
 }
 
 @media only screen and (max-width: 600px) {
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
   .footer-bar {
-    position: relative;
+    flex: 1;
+    height: 50px;
   }
 }
