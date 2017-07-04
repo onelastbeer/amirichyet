@@ -80,7 +80,8 @@ router.post('/settings', function (req, res) {
   	    showCurrentValue: data.settings.showCurrentValue,
   	    showProfitLoss: data.settings.showProfitLoss,
   	    showProfitLossPercentage: data.settings.showProfitLossPercentage,
-  	    theme: data.settings.theme
+  	    theme: data.settings.theme,
+        refCurrency: data.settings.refCurrency
       }
       user.save((err) => {
         if (err) {

@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <h2>Settings</h2>
+    <label class="color-1" for="transaction.currencyId">Select Reference Currency</label>
+    <select id="currencyRangeField">
+      <option v-for="currency in currencies" value="currency">{{currency}}</option>
+    </select>
     <table class="settings-table">
       <thead>
         <tr class="color-1">
@@ -61,9 +65,11 @@ export default {
   	    showCurrentValue: false,
   	    showProfitLoss: true,
   	    showProfitLossPercentage: true,
-  	    theme: "Dark"
+  	    theme: "Dark",
+        refCurrency: "USD"
       },
-      error: false
+      error: false,
+      currencies: ["EUR","USD","ETH","BTC"]
     }
   },
   methods: {

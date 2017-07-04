@@ -86,6 +86,10 @@ var UserSchema = new Schema({
     theme: {
       type: String,
       default: "Dark"
+    },
+    refCurrency: {
+      type: String,
+      default: "USD"
     }
   }
 });

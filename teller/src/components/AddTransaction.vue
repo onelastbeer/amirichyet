@@ -68,7 +68,7 @@
             <input class="button button-1 " value="Save" type="submit">
           </div>
           <div class="button-list">
-            <input class="button button-3 button-list" value="Cancel" type="submit">
+            <router-link to="/dashboard" class="button button-1">Cancel</router-link>
           </div>
         </div>
       </fieldset>
