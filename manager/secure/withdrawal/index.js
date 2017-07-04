@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Investment = mongoose.model('Investment');
+const Withdrawal = mongoose.model('Withdrawal');
 
 var router = express.Router();
 
 router.get('/all', function (req, res) {
-  Investment.find({'user': req.decoded.userId, 'deleted': false}, function(err, result) {
+  Withdrawal.find({'user': req.decoded.userId, 'deleted': false}, function(err, result) {
     if (err) {
       console.log(err);
       return res.status(409).json({
@@ -15,23 +15,23 @@ router.get('/all', function (req, res) {
     } else if (result) {
       return res.status(200).json({
         success: true,
-        message: 'List of all investments from this user',
-        investments: result
+        message: 'List of all withdrawals from this user',
+        withdrawals: result
       });
     } else {
       return res.status(200).json({
         success: false,
-        message: 'No investments found for this user'
+        message: 'No withdrawal found for this user'
       });
     }
   })
 });
 
 router.post('/add', function (req, res) {
-  var data = req.body.investment;
+  var data = req.body.withdrawal;
   var user = req.decoded;
   console.log(user._id);
-  new Investment({
+  new Withdrawal({
     date: data.date,
     userId: user._id,
     amounts: {
@@ -51,21 +51,21 @@ router.post('/add', function (req, res) {
   } else {
     return res.status(200).json({
           success   : true,
-          message   : 'Investment added'
+          message   : 'Withdrawal added'
         });
   }});
 });
 
 router.post('/edit', function (req, res) {
-  var data = req.body.investment;
+  var data = req.body.withdrawal;
   var user = req.decoded;
   if((user.id != data.userId && !user.superUser)) {
     return res.status(403).json({
           success   : false,
-          message   : 'You don\'t own this investment' + data.id
+          message   : 'You don\'t own this withdrawal' + data.id
         });
   } else {
-    Investment.update({id: data.id}, {
+    Withdrawal.update({id: data.id}, {
       date: data.date,
       userId: user.id,
       amounts: {
@@ -84,32 +84,32 @@ router.post('/edit', function (req, res) {
     } else {
       return res.status(200).json({
             success   : true,
-            message   : 'Investment ' + data.id + ' edited'
+            message   : 'Withdrawal ' + data.id + ' edited'
           });
     }});
   }
 });
 
 router.post('/delete', function (req, res) {
-  var data = req.body.investment;
+  var data = req.body.withdrawal;
   var user = req.decoded;
   if((user.id != data.userId && !user.superUser)) {
     return res.status(403).json({
           success   : false,
-          message   : 'You don\'t own investment ' + data.id
+          message   : 'You don\'t own withdrawal ' + data.id
         });
   } else {
-    Investment.update({id: data.id}, {deleted: true} ,function (err, match) {
+    Withdrawal.update({id: data.id}, {deleted: true} ,function (err, match) {
     if (!match || err || (user.id != data.userId && !user.superUser)) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to delete investment ' + data.id
+            message   : 'Unable to delete withdrawal ' + data.id
           });
     } else {
       return res.status(200).json({
             success   : true,
-            message   : 'Investment ' + data.id + ' deleted'
+            message   : 'Withdrawal ' + data.id + ' deleted'
           });
     }});
   }

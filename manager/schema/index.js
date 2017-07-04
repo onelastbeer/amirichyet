@@ -12,6 +12,7 @@ module.exports = () => {
   require('./transaction.js');
   require('./investment.js');
   require('./currency.js');
+  require('./withdrawal.js');
 
   //setting up root
   const User = mongoose.model('User');

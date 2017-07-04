@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var InvestmentSchema = new Schema({
+var WithdrawalSchema = new Schema({
 
   created: {
     type: Date,
@@ -17,17 +17,17 @@ var InvestmentSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: 'A user is required for this investment'
+    required: 'A user is required for this withdrawal'
   },
 
   amounts: {
     usd: {
       type: Number,
-      required: 'A USD rate is required for this investment'
+      required: 'A USD rate is required for this withdrawal'
     },
     eur: {
       type: Number,
-      required: 'A EUR rate is required for this investment'
+      required: 'A EUR rate is required for this withdrawal'
     },
     eth: {
       type: Number
@@ -43,4 +43,4 @@ var InvestmentSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Investment', InvestmentSchema );
+module.exports = mongoose.model('Withdrawal', WithdrawalSchema );

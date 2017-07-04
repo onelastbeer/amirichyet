@@ -88,7 +88,7 @@ router.post('/edit', function (req, res) {
     } else {
       return res.status(200).json({
             success   : true,
-            message   : 'Transaction ' + data.id + ' deleted'
+            message   : 'Transaction ' + data.id + ' edited'
           });
     }});
   }
