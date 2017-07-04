@@ -16,7 +16,7 @@ router.post('/new', function(req, res) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to create user'
+            message   : err.message
           });
     } else if (!match) {
       new User({
@@ -30,7 +30,7 @@ router.post('/new', function(req, res) {
         console.error(err);
         return res.status(200).json({
               success   : false,
-              message   : 'Unable to create user'
+              message   : err.message
             });
       } else {
         return res.status(200).json({
@@ -54,10 +54,9 @@ router.post('/authenticate', function (req, res) {
       console.log(err);
       return res.status(409).json({
         success: false,
-        error: 'Internal server error' 
+        error: 'Internal server error'
       });
     } else if (user) {
-      console.log(user);
       bcrypt.compare(data.password, user.password, function(err, match) {
         if(match) {
           var sign = {
