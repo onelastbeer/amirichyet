@@ -11,6 +11,7 @@ import Dashboard from './components/dashboard/Dashboard.vue'
 import Verify from './components/Verify.vue'
 import AddTransaction from './components/dashboard/AddTransaction.vue'
 import AddInvestment from './components/dashboard/AddInvestment.vue'
+import AddWithdrawal from './components/dashboard/AddWithdrawal.vue'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,7 @@ const router = new VueRouter({
     { path: '/verify', component: Verify },
     { path: '/add_transaction', component: AddTransaction },
     { path: '/add_investment', component: AddInvestment },
+    { path: '/add_withdrawal', component: AddWithdrawal },
     { path: '/logout',
       beforeEnter (to, from, next) {
         store.dispatch('logout')

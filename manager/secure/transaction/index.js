@@ -33,8 +33,10 @@ router.post('/add', function (req, res) {
   new Transaction({
     date: data.date,
     userId: user.id,
-    currencyId: data.currencyId,
-    amount: data.amount,
+    from: data.from,
+    to: data.to,
+    debitedAmount: data.creditedAmount,
+    creditedAmount: data.creditedAmount,
     rates: {
       usd: data.rates.usd,
       eur: data.rates.eur,
@@ -69,7 +71,8 @@ router.post('/edit', function (req, res) {
     Transaction.update({id: data.id}, {
       date: data.date,
       userId: user.id,
-      currencyId: data.currencyId,
+      from: data.from,
+      to: data.to,
       amount: data.amount,
       rate: {
         usd: data.rates.usd,

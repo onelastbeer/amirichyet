@@ -20,13 +20,24 @@ var TransactionSchema = new Schema({
     required: 'A user is required for this transaction'
   },
 
-  currencyId: {
+  from: {
+    type: Schema.Types.ObjectId,
+    ref: 'Currency',
+    required: 'A currency is required for this transaction'
+  }, 
+
+  to: {
     type: Schema.Types.ObjectId,
     ref: 'Currency',
     required: 'A currency is required for this transaction'
   },
 
-  amount: {
+  debitedAmount: {
+    type: Number,
+    required: 'An amount is required for this transaction'
+  },
+
+  creditedAmount: {
     type: Number,
     required: 'An amount is required for this transaction'
   },

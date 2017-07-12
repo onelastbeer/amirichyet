@@ -177,6 +177,15 @@ select:focus {
   background: transparent;
 }
 
+.button:focus {
+  background: transparent;
+  border-color: #006680;
+} 
+
+.router-link-active {
+  background: transparent;
+}
+
 .settings-table {
   text-align: left;
 }
