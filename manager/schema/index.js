@@ -12,10 +12,11 @@ module.exports = () => {
   require('./transaction.js');
   require('./investment.js');
   require('./currency.js');
+  require('./withdrawal.js');
 
   //setting up root
   const User = mongoose.model('User');
-  User.findOne({ username: rootUsername } , (err, match) => {
+  User.findOne({ username: rootUsername.toLowerCase() } , (err, match) => {
     if (err) throw err;
     if(!match) {
       new User({

@@ -51,4 +51,6 @@ router.use('/transaction', require('./transaction'));
 
 router.use('/investment', require('./investment'));
 
+router.use('/withdrawal', require('./withdrawal'));
+
 module.exports = router;

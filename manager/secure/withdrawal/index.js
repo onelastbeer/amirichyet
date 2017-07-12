@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Transaction = mongoose.model('Transaction');
+const Withdrawal = mongoose.model('Withdrawal');
 
 var router = express.Router();
 
 router.get('/all', function (req, res) {
-  Transaction.find({'user': req.decoded.userId, 'deleted': false}, function(err, result) {
+  Withdrawal.find({'user': req.decoded.userId, 'deleted': false}, function(err, result) {
     if (err) {
       console.log(err);
       return res.status(409).json({
@@ -15,70 +15,65 @@ router.get('/all', function (req, res) {
     } else if (result) {
       return res.status(200).json({
         success: true,
-        message: 'List of all transactions from this user',
-        transactions: result
+        message: 'List of all withdrawals from this user',
+        withdrawals: result
       });
     } else {
       return res.status(200).json({
         success: false,
-        message: 'No transactions found for this user'
+        message: 'No withdrawal found for this user'
       });
     }
   })
 });
 
 router.post('/add', function (req, res) {
-  console.log(req.body);
-  var data = req.body.transaction;
+  var data = req.body.withdrawal;
   var user = req.decoded;
-  new Transaction({
+  console.log(user._id);
+  new Withdrawal({
     date: data.date,
-    userId: user.id,
-    currencyId: data.currencyId,
-    amount: data.amount,
-    rates: {
-      usd: data.rates.usd,
-      eur: data.rates.eur,
-      eth: data.rates.eth,
-      btc: data.rates.btc
-    },
-    received: data.received
+    userId: user._id,
+    amounts: {
+      usd: data.amounts.usd,
+      eur: data.amounts.eur,
+      eth: data.amounts.eth,
+      btc: data.amounts.btc
+    }
   }).save(function (err) {
   if (err) {
     console.error(err);
     return res.status(200).json({
           success   : false,
           message   : err.message
+
         });
   } else {
     return res.status(200).json({
           success   : true,
-          message   : 'Transaction added'
+          message   : 'Withdrawal added'
         });
   }});
 });
 
 router.post('/edit', function (req, res) {
-  var data = req.body.transaction;
+  var data = req.body.withdrawal;
   var user = req.decoded;
   if((user.id != data.userId && !user.superUser)) {
     return res.status(403).json({
           success   : false,
-          message   : 'You don\'t own this transaction' + data.id
+          message   : 'You don\'t own this withdrawal' + data.id
         });
   } else {
-    Transaction.update({id: data.id}, {
+    Withdrawal.update({id: data.id}, {
       date: data.date,
       userId: user.id,
-      currencyId: data.currencyId,
-      amount: data.amount,
-      rate: {
-        usd: data.rates.usd,
-        eur: data.rates.eur,
-        eth: data.rates.eth,
-        btc: data.rates.btc
-      },
-      received: data.received
+      amounts: {
+        usd: data.amounts.usd,
+        eur: data.amounts.eur,
+        eth: data.amounts.eth,
+        btc: data.amounts.btc
+      }
     } ,function (err, match) {
     if (!match || err || (user.id != data.userId && !user.superUser)) {
       console.error(err);
@@ -89,32 +84,32 @@ router.post('/edit', function (req, res) {
     } else {
       return res.status(200).json({
             success   : true,
-            message   : 'Transaction ' + data.id + ' edited'
+            message   : 'Withdrawal ' + data.id + ' edited'
           });
     }});
   }
 });
 
 router.post('/delete', function (req, res) {
-  var data = req.body.transaction;
+  var data = req.body.withdrawal;
   var user = req.decoded;
   if((user.id != data.userId && !user.superUser)) {
     return res.status(403).json({
           success   : false,
-          message   : 'You don\'t own transaction ' + data.id
+          message   : 'You don\'t own withdrawal ' + data.id
         });
   } else {
-    Transaction.update({id: data.id}, {deleted: true} ,function (err, match) {
+    Withdrawal.update({id: data.id}, {deleted: true} ,function (err, match) {
     if (!match || err || (user.id != data.userId && !user.superUser)) {
       console.error(err);
       return res.status(200).json({
             success   : false,
-            message   : 'Unable to delete transaction ' + data.id
+            message   : 'Unable to delete withdrawal ' + data.id
           });
     } else {
       return res.status(200).json({
             success   : true,
-            message   : 'Transaction ' + data.id + ' deleted'
+            message   : 'Withdrawal ' + data.id + ' deleted'
           });
     }});
   }
