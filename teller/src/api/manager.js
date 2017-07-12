@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 export default {
+
+  // AUTHENTICATION
   login (username, password, cb, errorCb) {
     axios.post('/api/public/user/authenticate', {
       username: username,
@@ -17,7 +19,7 @@ export default {
     }).then(response => {
       response.data.success ? cb() : errorCb(response.data.message)
     }).catch(error => {
-      errorCb("Connection Error");
+      errorCb("Connection Error")
     });
   },
   checkLogin (ax, cb, errorCb) {
@@ -27,6 +29,24 @@ export default {
       errorCb();
     })
   },
+
+  // TRANSACTIONS
+  getTransactions (ax, cb, errorCb) {
+    ax.get('/api/secure/transaction/all').then(response => {
+      response.data.success ? cb(response.data.transactions) : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error")
+    })
+  },
+  addTransaction (ax, transaction, cb, errorCb) {
+    ax.post('/api/secure/transaction/add', {transaction: transaction}).then(response => {
+      response.data.success ? cb() : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error")
+    })
+  },
+
+  // SETTINGS
   getSettings (ax, cb, errorCb) {
     ax.get('/api/secure/user/settings').then(response => {
       response.data.success ? cb(response.data.settings) : errorCb(response.data.message)

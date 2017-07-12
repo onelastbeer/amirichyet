@@ -31,7 +31,15 @@ import Currency from './Currency.vue'
 export default {
   components: { Currency },
   computed: mapGetters({
-    currencies: 'currencies'
+    currencies: 'currencies',
   }),
+  methods: {
+    getTransactions() {
+      this.$store.dispatch('getAllTransactions')
+    }
+  },
+  mounted: function() {
+    this.getTransactions()
+  }
 }
 </script>

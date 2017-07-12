@@ -28,6 +28,7 @@ router.get('/all', function (req, res) {
 });
 
 router.post('/add', function (req, res) {
+  console.log(req.body);
   var data = req.body.transaction;
   var user = req.decoded;
   new Transaction({
