@@ -13,7 +13,6 @@ const getters = {
 // actions
 const actions = {
   setError ({ commit, state }, { error }) {
-    console.log("hi")
     commit(types.SET_ERROR, { error })
   },
 
@@ -29,6 +28,14 @@ const mutations = {
   },
 
   [types.LOGIN_FAILURE] (state, { username, message }) {
+    state.error = message
+  },
+
+  [types.GET_FAILURE] (state, {username, message}) {
+    state.error = message
+  },
+
+  [types.ADD_TRANSACTION_FAILURE] (state, { message }) {
     state.error = message
   },
 
