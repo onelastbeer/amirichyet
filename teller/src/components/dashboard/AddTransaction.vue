@@ -3,32 +3,18 @@
     <h2 style="text-align: center;">Add Transaction</h2>
     <form class="form" @submit.prevent="transaction">
       <fieldset>
-        <label class="color-1" for="transaction.from"><h3>From</h3></label>
-        <div class="row">
-          <div class="column">
-            <select id="currencyRangeField">
-              <option v-for="currency in currencies" value="currency.id">{{currency.name}}</option>
-            </select>
-          </div>
-          <div class="column">
-            <input placeholder="amount" v-model="transaction.debitedAmount" type="number">
-          </div>
-        </div>
-        <label class="color-1" for="transaction.to"><h3>To</h3></label>
-        <div class="row">
-          <div class="column">
-            <select id="currencyRangeField">
-              <option v-for="currency in currencies" value="currency.id">{{currency.name}}</option>
-            </select>
-          </div>
-          <div class="column">
-            <input placeholder="amount" v-model="transaction.creditedAmount" type="number">
-          </div>
-        </div>
-        <div class="row">
+        <label class="color-1" for="transaction.currencyId"><h3>Select Currency</h3></label>
+        <select id="currencyRangeField">
+          <option v-for="currency in currencies" value="currency.id">{{currency.name}}</option>
+        </select>
+        <div class="column">
           <h3 class="color-1">Date</h3>
         </div>
         <input v-model="transaction.date" type="date">
+        <div class="column">
+          <h3 class="color-1">Amount</h3>
+        </div>
+        <input placeholder="amount" v-model="transaction.amount" type="number">
         <div class="row">
           <div class="column">
             <h3 class="color-1">Rates</h3>
@@ -114,10 +100,8 @@ export default {
       },
       transaction: {
         date: null,
-        from: "",
-        to: "",
-        debitedAmount: 0,
-        creditedAmount: 0,
+        currencyId: "",
+        amount: 0,
         rates: {
           usd: 0,
           eur: 0,
