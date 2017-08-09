@@ -39,6 +39,14 @@ const mutations = {
     state.error = message
   },
 
+  [types.ADD_WITHDRAWAL_FAILURE] (state, { message }) {
+    state.error = message
+  },
+
+  [types.ADD_INVESTMENT_FAILURE] (state, { message }) {
+    state.error = message
+  },
+
   [types.CLEAR_ERROR] (state) {
     state.error = null
   }

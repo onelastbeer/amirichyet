@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 style="text-align: center;">Add Investment</h2>
-    <form class="form" @submit.prevent="investment">
+    <form class="form" @submit.prevent="addInvestment">
       <fieldset>
         <div class="column">
           <h3 class="color-1">Date</h3>
@@ -76,6 +76,12 @@ export default {
           btc: 0
         }
       }
+    }
+  },
+  methods: {
+    addInvestment() {
+      this.$store.dispatch('addInvestment', {investment: this.investment});
+      this.$router.replace('/dashboard');
     }
   }
 }

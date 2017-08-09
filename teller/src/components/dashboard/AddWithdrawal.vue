@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 style="text-align: center;">Add Withdrawal</h2>
-    <form class="form" @submit.prevent="withdrawal">
+    <form class="form" @submit.prevent="addWithdrawal">
       <fieldset>
         <div class="column">
           <h3 class="color-1">Date</h3>
@@ -76,6 +76,12 @@ export default {
           btc: 0
         }
       }
+    }
+  },
+  methods: {
+    addWithdrawal() {
+      this.$store.dispatch('addWithdrawal', {withdrawal: this.withdrawal});
+      this.$router.replace('/dashboard');
     }
   }
 }

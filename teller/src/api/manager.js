@@ -46,6 +46,38 @@ export default {
     })
   },
 
+  // WITHDRAWALS
+  getWithdrawals (ax, cb, errorCb) {
+    ax.get('/api/secure/withdrawal/all').then(response => {
+      response.data.success ? cb(response.data.withdrawals) : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error")
+    })
+  },
+  addWithdrawal (ax, withdrawal, cb, errorCb) {
+    ax.post('/api/secure/withdrawal/add', {withdrawal: withdrawal}).then(response => {
+      response.data.success ? cb() : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error")
+    })
+  },
+
+  // INVESTMENTS
+  getInvestments (ax, cb, errorCb) {
+    ax.get('/api/secure/investment/all').then(response => {
+      response.data.success ? cb(response.data.investments) : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error")
+    })
+  },
+  addInvestment (ax, investment, cb, errorCb) {
+    ax.post('/api/secure/investment/add', {investment: investment}).then(response => {
+      response.data.success ? cb() : errorCb(response.data.message)
+    }).catch(error => {
+      errorCb("Connection Error")
+    })
+  },
+
   // SETTINGS
   getSettings (ax, cb, errorCb) {
     ax.get('/api/secure/user/settings').then(response => {
