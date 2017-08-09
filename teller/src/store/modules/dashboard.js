@@ -25,9 +25,7 @@ const mutations = {
   [types.ADD_TRANSACTION_SUCCESS] (state, { transaction }) {
     state.transactions.push(transaction)
   },
-  [types.ADD_TRANSACTION_FAILURE] (state, { username, message }) {
-    state.username = username
-    state.authenticated = false
+  [types.ADD_TRANSACTION_FAILURE] (state, { message }) {
   }
 }
 

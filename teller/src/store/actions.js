@@ -8,8 +8,7 @@ export const getAllTransactions = ({commit, state}) => {
 }
 
 export const addTransaction = ({
-  commit,
-  state
+  commit, state
 }, {transaction}) => {
-  manager.addTransaction(state.auth.ax, transaction, () => commit(types.ADD_TRANSACTION_SUCCESS, {transaction}), message => commit(types.ADD_TRANSACTION_FAILURE, {message}));
+  manager.addTransaction(state.auth.ax, transaction, () => commit(types.ADD_TRANSACTION_SUCCESS, {transaction}), message => commit(types.ADD_TRANSACTION_FAILURE, {message}))
 }

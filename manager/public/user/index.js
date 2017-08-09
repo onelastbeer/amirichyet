@@ -60,7 +60,7 @@ router.post('/authenticate', function (req, res) {
       bcrypt.compare(data.password, user.password, function(err, match) {
         if(match) {
           var sign = {
-            _id: user._id,
+            id: user.id,
             username: user.username,
             email: user.email,
             firstName: user.firstName,
