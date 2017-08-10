@@ -7,6 +7,18 @@ export const getAllTransactions = ({commit, state}) => {
   }, message => commit(types.GET_FAILURE, {message}));
 }
 
+export const getAllInvestments = ({commit, state}) => {
+  manager.getInvestments(state.auth.ax, investments => {
+    commit(types.RECIEVE_INVESTMENTS, {investments})
+  }, message => commit(types.GET_FAILURE, {message}));
+}
+
+export const getAllWithdrawals = ({commit, state}) => {
+  manager.getWithdrawals(state.auth.ax, withdrawals => {
+    commit(types.RECIEVE_WITHDRAWALS, {withdrawals})
+  }, message => commit(types.GET_FAILURE, {message}));
+}
+
 export const addTransaction = ({
   commit, state
 }, {transaction}) => {

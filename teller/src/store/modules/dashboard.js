@@ -11,7 +11,8 @@ const state = {
 
 // getters
 const getters = {
-  currencies: state => state.transactions
+  currencies: state => state.currencies,
+  investments: state => state.investments
 }
 
 // actions
@@ -24,6 +25,14 @@ const mutations = {
     state.transactions = transactions || []
   },
 
+  [types.RECIEVE_INVESTMENTS] (state, { investments }) {
+    state.investments = investments || []
+  },
+
+  [types.RECIEVE_WITHDRAWALS] (state, { withdrawals }) {
+    state.withdrawals = withdrawals || []
+  },
+
   [types.ADD_TRANSACTION_SUCCESS] (state, { transaction }) {
     state.transactions.push(transaction)
   },
@@ -31,7 +40,7 @@ const mutations = {
   [types.ADD_WITHDRAWAL_SUCCESS] (state, { withdrawal }) {
     state.withdrawals.push(withdrawal)
   },
-  
+
   [types.ADD_INVESTMENT_SUCCESS] (state, { investment }) {
     state.transactions.push(investment)
   },
