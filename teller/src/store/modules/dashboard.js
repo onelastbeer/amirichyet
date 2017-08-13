@@ -12,7 +12,9 @@ const state = {
 // getters
 const getters = {
   currencies: state => state.currencies,
-  investments: state => state.investments
+  investments: state => state.investments,
+  withdrawals: state => state.withdrawals,
+  transactions: state => state.transactions
 }
 
 // actions

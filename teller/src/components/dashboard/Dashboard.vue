@@ -18,8 +18,10 @@
     </tbody>
   </table>
   <h3>Number of investments : {{ investments.length }}</h3>
+  <h3>Number of withdrawals : {{ withdrawals.length }}</h3>
   <router-link to="/add_transaction" class="button button-1">Add Transaction</router-link>
   <router-link to="/add_investment" class="button button-1">Add Investment</router-link>
+  <router-link to="/add_withdrawal" class="button button-1">Add Withdrawal</router-link>
 </div>
 </template>
 
@@ -33,7 +35,8 @@ export default {
   components: { Currency },
   computed: mapGetters({
     currencies: 'currencies',
-    investments: 'investments'
+    investments: 'investments',
+    withdrawals: 'withdrawals'
   }),
   methods: {
     getTransactions() {
